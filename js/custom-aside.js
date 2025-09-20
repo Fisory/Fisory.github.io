@@ -166,7 +166,7 @@
           // 侧边栏卡片
           wrap.innerHTML = `
             <div class="card profile">
-              <img class="avatar" src="/img/银河系.SVG.svg" alt="avatar" />
+              <img class="avatar" src="/img/slience.jpg" alt="avatar" />
               <div>
                 <h3>Welcome to my blog!</h3>
                 <p class="motto"></p>
@@ -219,85 +219,36 @@
               </div>
             </div>
           `;
-          aside.appendChild(wrap);
 
-          // 座右铭打字机 + 通用打字机函数
-          function typeWriter(el, text, opts){
-          opts = opts || {};
-          var base = Number(opts.speedBase || 160);
-          var puncPause = Number(opts.punctuationPause || 360);
-          try { if (el.__twTimer) clearTimeout(el.__twTimer); } catch(err) {}
-          el.textContent = '';
-          var i = 0;
-          function step(){
-          el.textContent = text.slice(0, i++);
-          if (i <= text.length){
-          var ch = text[i-2] || '';
-          var delay = base + (/[，。！？、,. :;—…]/.test(ch) ? puncPause : 0);
-          el.__twTimer = setTimeout(step, delay);
-          }
-          }
-          setTimeout(step, base);
-          }
+          // 组装
+          var frag = document.createDocumentFragment();
+          frag.appendChild(wrap);
+          aside.appendChild(frag);
+
+          // 一言
           try {
-          var motto = '本来无一物，何处惹尘埃.';
-          var mottoEl = wrap.querySelector('.motto');
-          if (mottoEl){
-          mottoEl.classList.add('typewriter');
-          typeWriter(mottoEl, motto, { speedBase: 160, punctuationPause: 360 });
-          }
-          } catch(e){}
-
-          // meting 未注册时的回退
-          try {
-            if (!(window.customElements && customElements.get && customElements.get('meting-js'))){
-              var musicCard = wrap.querySelector('.card.music');
-              if (musicCard) {
-                musicCard.innerHTML = '<div class="section-title">音乐播放器</div>'+
-                  '<a class="random-btn" href="https://music.163.com/#/my/m/music/playlist?id=2768580538" target="_blank" rel="noopener">打开网易云歌单</a>'; 
-              }
-            }
-          } catch(e){}
-
-          // 一言（带本地缓存 + 打字机渐显）
-          (function(){
-            var hitokotoEl = document.getElementById('hitokoto_text');
-            try {
-              var today = new Date().toISOString().slice(0,10);
-              var key = 'hitokoto_' + today;
-              var cached = localStorage.getItem(key);
-              function writeText(s){
-              try{ typeWriter(hitokotoEl, s, { speedBase: 160, punctuationPause: 360 }); }
-              catch(err){ hitokotoEl.textContent = s; }
-              }
-              if (cached) {
-                var d = JSON.parse(cached);
-                writeText((d.hitokoto || '') + (d.from ? ' — ' + d.from : ''));
-              } else {
-                fetch('https://v1.hitokoto.cn/?encode=json').then(r=>r.json()).then(function(d){
-                  Object.keys(localStorage).forEach(function(k){ if(k.startsWith('hitokoto_')) localStorage.removeItem(k); });
-                  localStorage.setItem(key, JSON.stringify(d));
-                  writeText((d.hitokoto || '') + (d.from ? ' — ' + d.from : ''));
-                }).catch(function(){ hitokotoEl.textContent = '获取失败，请稍后重试'; });
-              }
-            } catch(e) { if(hitokotoEl) hitokotoEl.textContent = '获取失败'; }
-          })();
+            fetch('https://v1.hitokoto.cn/?c=i').then(r=>r.json()).then(d=>{
+              var p = document.getElementById('hitokoto_text');
+              if (p) p.textContent = d && d.hitokoto || '保持热爱，奔赴山海。';
+            }).catch(function(){});
+          } catch(e) {}
 
           // 随机阅读
-          var btn = document.getElementById('random-read-link');
-          btn && btn.addEventListener('click', function(e){
-            e.preventDefault();
-            var anchors = Array.from(document.querySelectorAll('a[href]'));
-            var candidates = anchors.map(function(a){ return a.getAttribute('href'); })
-              .filter(function(h){ return h && h.startsWith('/') && !h.includes('#') && !/\.(jpg|jpeg|png|gif|svg|pdf)$/i.test(h) && !h.includes('categories') && !h.includes('tags') && !h.includes('page/'); })
-              .filter(function(h, idx, arr){ return arr.indexOf(h) === idx; });
-            if (candidates.length) {
-              var target = candidates[Math.floor(Math.random() * candidates.length)];
-              location.href = target;
-            } else {
-              alert('未找到可跳转的文章链接');
+          try {
+            var a = document.getElementById('random-read-link');
+            if (a) {
+              a.addEventListener('click', function(ev){
+                ev.preventDefault();
+                try {
+                  var anchors = Array.from(document.querySelectorAll('.l_main a.article a.post-title, .l_main .post-title a, .l_main .article-list a')).filter(function(x){ return x && x.href && /\/(\d{4})\//.test(x.href); });
+                  if (anchors.length > 0) {
+                    var idx = Math.floor(Math.random() * anchors.length);
+                    location.href = anchors[idx].href;
+                  }
+                } catch(e) {}
+              });
             }
-          });
+          } catch(e) {}
         });
       });
     });
