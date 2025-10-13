@@ -1,22 +1,389 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>链表</title>
+    <url>/2025/10/13/%E5%A4%A7%E4%BA%8C%E4%B8%8A-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<div class="ai-summary-dashed-container">
+  <div class="ai-summary-content">
+    <div class="ai-summary-header">
+      <div class="ai-summary-tag">AI 摘要</div>
+      <div class="ai-summary-slogan">AI已为您提炼精华</div>
+    </div>
+    <div class="ai-summary-body"><p class="ai-summary-text"><span>本篇为链表知识点笔记，占位待补充。</span></p></div>
+  </div>
+  </div>
+
+]]></content>
+      <categories>
+        <category>课业</category>
+        <category>笔记</category>
+        <category>数据结构</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数电基础</title>
+    <url>/2025/10/13/%E5%A4%A7%E4%BA%8C%E4%B8%8A-%E6%95%B0%E7%94%B5-%E6%95%B0%E7%94%B5%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<div class="ai-summary-dashed-container">
+  <div class="ai-summary-content">
+    <div class="ai-summary-header">
+      <div class="ai-summary-tag">AI 摘要</div>
+      <div class="ai-summary-slogan">AI已为您提炼精华</div>
+    </div>
+    <div class="ai-summary-body"><p class="ai-summary-text"><span>涵盖数字与模拟信号、二进制与补码、布尔代数与德摩根、最小项与卡诺图化简等核心内容。</span></p></div>
+  </div>
+</div>
+
+
+
+<h2 id="信号类型"><a href="#信号类型" class="headerlink" title="信号类型"></a>信号类型</h2><ul>
+<li>数字信号：离散的、量化的信号</li>
+<li>模拟信号：连续的、无限精度的信号</li>
+</ul>
+<h2 id="二进制数制"><a href="#二进制数制" class="headerlink" title="二进制数制"></a>二进制数制</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>诞生原因：$0$ 和 $1$ 在计算机内部易于处理</li>
+<li>表示方法：<strong>符号位</strong> + 数值位</li>
+</ul>
+<h3 id="数制转换"><a href="#数制转换" class="headerlink" title="数制转换"></a>数制转换</h3><h4 id="权重展开法"><a href="#权重展开法" class="headerlink" title="权重展开法"></a>权重展开法</h4><p>方法主要基于理解：任意进制数都可以用<strong>权重展开的形式</strong>表示：</p>
+<p>$$N &#x3D; \sum_{i&#x3D;-m}^{n-1} a_i \times r^i$$</p>
+<p>其中：</p>
+<ul>
+<li>$a_i$ 为第 $i$ 位的数字</li>
+<li>$r$ 为进制基数</li>
+<li>$n$ 为整数位数</li>
+<li>$m$ 为小数位数</li>
+</ul>
+<h4 id="常见进制转换"><a href="#常见进制转换" class="headerlink" title="常见进制转换"></a>常见进制转换</h4><ul>
+<li><strong>二进制 $(2)$ ↔ 八进制 $(8)$ ↔ 十六进制 $(16)$ ↔ 十进制 $(10)$</strong><br><strong>小数乘、整数除</strong></li>
+</ul>
+<h3 id="二进制运算"><a href="#二进制运算" class="headerlink" title="二进制运算"></a>二进制运算</h3><h4 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h4><ul>
+<li>加法、减法、乘法、除法</li>
+</ul>
+<h4 id="负数表示-补码"><a href="#负数表示-补码" class="headerlink" title="负数表示 - 补码"></a>负数表示 - 补码</h4><p>由于计算机内部构建的简化需求，所有运算都使用加法实现。</p>
+<p><strong>补码数值上</strong>：符号位不变，其他位取反加一</p>
+<p>补码理解：</p>
+<ul>
+<li>类比时钟：从 $10$ 点到 $5$ 点<ul>
+<li>正向：$+7$ 小时</li>
+<li>反向：$-5$ 小时</li>
+<li>因此 $+7$ 和 $-5$ 互为补码</li>
+</ul>
+</li>
+</ul>
+<p><strong>补码性质</strong>：<br>$$5 + 7 &#x3D; 12 &#x3D; 2^n \text{（码制可表示的最大值）}$$</p>
+<p><strong>补码运算</strong>示例（以5位二进制为例）：</p>
+<ul>
+<li>$(-1) + 7$：通过忽略进位，符号位变为 $0$</li>
+<li>$(-12) + 5$：正常运算</li>
+</ul>
+<h3 id="二进制编码十进制-BCD"><a href="#二进制编码十进制-BCD" class="headerlink" title="二进制编码十进制 (BCD)"></a>二进制编码十进制 (BCD)</h3><ul>
+<li>各种编码方式</li>
+<li><strong>格雷码</strong>：减少过渡噪声，<strong>相邻码字只有一位不同</strong></li>
+</ul>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><h3 id="基本运算符"><a href="#基本运算符" class="headerlink" title="基本运算符"></a>基本运算符</h3><h4 id="逻辑变量和逻辑函数"><a href="#逻辑变量和逻辑函数" class="headerlink" title="逻辑变量和逻辑函数"></a>逻辑变量和逻辑函数</h4><p>逻辑运算与集合运算的对应关系：</p>
+<ul>
+<li>与运算 (AND)：$A \cdot B$ 或 $A \land B$，对应集合的交运算</li>
+<li>或运算 (OR)：$A + B$ 或 $A \lor B$，对应集合的并运算  </li>
+<li>非运算 (NOT)：$\overline{A}$ 或 $\neg A$，对应集合的补运算</li>
+</ul>
+<h4 id="电路符号表示"><a href="#电路符号表示" class="headerlink" title="电路符号表示"></a>电路符号表示</h4><ul>
+<li>与门：$&amp;$ 符号</li>
+<li>或门：$\geq 1$ 符号</li>
+<li>非门：输出端加 $\circ$ 符号<br>另一种符号表示：<strong>与或非越来越尖</strong></li>
+</ul>
+<h4 id="其他逻辑运算"><a href="#其他逻辑运算" class="headerlink" title="其他逻辑运算"></a>其他逻辑运算</h4><ul>
+<li>异或 (XOR)：$A \oplus B$，当且仅当 $A \neq B$ 时为真</li>
+<li>同或 (XNOR)：$A \odot B$，当且仅当 $A &#x3D; B$ 时为真</li>
+</ul>
+<p><strong>异或与同或的关系</strong>：<br>$$A \odot B &#x3D; \overline{A \oplus B}$$</p>
+<h3 id="运算公式"><a href="#运算公式" class="headerlink" title="运算公式"></a>运算公式</h3><h4 id="基本定律"><a href="#基本定律" class="headerlink" title="基本定律"></a>基本定律</h4><ul>
+<li>交换律：$A + B &#x3D; B + A$，$A \cdot B &#x3D; B \cdot A$</li>
+<li>结合律：$(A + B) + C &#x3D; A + (B + C)$，$(A \cdot B) \cdot C &#x3D; A \cdot (B \cdot C)$</li>
+<li><strong>分配律</strong>：$A \cdot (B + C) &#x3D; A \cdot B + A \cdot C$，$A + (B \cdot C) &#x3D; (A + B) \cdot (A + C)$</li>
+</ul>
+<h4 id="德摩根定理"><a href="#德摩根定理" class="headerlink" title="德摩根定理"></a>德摩根定理</h4><p>$$\overline{A + B} &#x3D; \overline{A} \cdot \overline{B}$$<br>$$\overline{A \cdot B} &#x3D; \overline{A} + \overline{B}$$</p>
+<h4 id="异或和同或公式"><a href="#异或和同或公式" class="headerlink" title="异或和同或公式"></a>异或和同或公式</h4><ul>
+<li>$A \oplus B &#x3D; A\overline{B} + \overline{A}B$</li>
+<li>$A \odot B &#x3D; A B + \overline{A},\overline{B}$</li>
+</ul>
+<h3 id="逻辑函数与最小项"><a href="#逻辑函数与最小项" class="headerlink" title="逻辑函数与最小项"></a>逻辑函数与最小项</h3><h4 id="最小项定义"><a href="#最小项定义" class="headerlink" title="最小项定义"></a>最小项定义</h4><p><strong>最小项</strong> (Minterm)：由 $n$ 个逻辑变量构成的与项，每个变量都出现且只出现一次（原变量或反变量形式）。</p>
+<h4 id="最小项性质"><a href="#最小项性质" class="headerlink" title="最小项性质"></a>最小项性质</h4><ol>
+<li><strong>数量</strong>：$n$ 个变量有 $2^n$ 个最小项</li>
+<li><strong>唯一性</strong>：对于逻辑变量的一组固定输入，<strong>只有一个最小项为1</strong></li>
+<li><strong>编码</strong>：可以对最小项进行二进制编码，对应十进制数</li>
+<li><strong>正交性</strong>：任意两个不同最小项的乘积为 $0$</li>
+</ol>
+<h4 id="逻辑函数的标准形式"><a href="#逻辑函数的标准形式" class="headerlink" title="逻辑函数的标准形式"></a>逻辑函数的标准形式</h4><p>由于最小项的正交性，<strong>最小项可以作为逻辑函数的基</strong>：</p>
+<p>$$f(A,B,C,\ldots) &#x3D; \sum m_i$$</p>
+<p>其中 $m_i$ 表示使函数值为 $1$ 的最小项。</p>
+<p><strong>标准型推导</strong>：利用 $A + \overline{A} &#x3D; 1$ 的性质可以得到标准型。</p>
+<h3 id="逻辑函数化简"><a href="#逻辑函数化简" class="headerlink" title="逻辑函数化简"></a>逻辑函数化简</h3><h4 id="化简目标"><a href="#化简目标" class="headerlink" title="化简目标"></a>化简目标</h4><p><strong>逻辑函数的最简与或式</strong>：</p>
+<ul>
+<li>乘积项数最少</li>
+<li>每个乘积项中的变量数最少</li>
+</ul>
+<h4 id="化简方法"><a href="#化简方法" class="headerlink" title="化简方法"></a>化简方法</h4><h5 id="1-公式法"><a href="#1-公式法" class="headerlink" title="1. 公式法"></a>1. 公式法</h5><p>利用布尔代数的基本定律和定理进行化简。</p>
+<h5 id="2-卡诺图法-Karnaugh-Map"><a href="#2-卡诺图法-Karnaugh-Map" class="headerlink" title="2. 卡诺图法 (Karnaugh Map)"></a>2. 卡诺图法 (Karnaugh Map)</h5><p><strong>卡诺图结构</strong><br>   00 01 11 10<br>00<br>01<br>11<br>10</p>
+<p><strong>格雷码排列</strong>：相邻位置只有一个变量不同</p>
+<p><strong>卡诺图特点</strong>：</p>
+<ul>
+<li><strong>相邻性</strong>：物理相邻的最小项只有一个变量不同，最左和最右、最上和最下也相邻</li>
+<li><strong>化简原理</strong>：相邻的可以合并，消去不同的变量</li>
+</ul>
+<p><strong>化简步骤</strong>：</p>
+<ol>
+<li>将逻辑函数的最小项在卡诺图中标为 $1$</li>
+<li>找出相邻的 $1$，进行合并</li>
+<li>四个相邻的 $1$ 可以消去两个变量</li>
+</ol>
+<h3 id="最大项"><a href="#最大项" class="headerlink" title="最大项"></a>最大项</h3><p><strong>最大项</strong> (Maxterm)：由 $n$ 个逻辑变量构成的或项，每个变量都出现且只出现一次。</p>
+<p>最大项与最小项具有对偶关系：<br>$$M_i &#x3D; \overline{m_i}$$</p>
+]]></content>
+      <categories>
+        <category>课业</category>
+        <category>笔记</category>
+        <category>数电</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>古典概型和概率空间</title>
+    <url>/2025/10/13/%E5%A4%A7%E4%BA%8C%E4%B8%8A-%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1-%E5%8F%A4%E5%85%B8%E6%A6%82%E5%9E%8B%E5%92%8C%E6%A6%82%E7%8E%87%E7%A9%BA%E9%97%B4/</url>
+    <content><![CDATA[<div class="ai-summary-dashed-container">
+  <div class="ai-summary-content">
+    <div class="ai-summary-header">
+      <div class="ai-summary-tag">AI 摘要</div>
+      <div class="ai-summary-slogan">AI已为您提炼精华</div>
+    </div>
+    <div class="ai-summary-body"><p class="ai-summary-text"><span>介绍试验与事件、样本空间与事件定义，推导古典概率模型的基本公式与性质。</span></p></div>
+  </div>
+</div>
+
+<h1 id="试验与事件"><a href="#试验与事件" class="headerlink" title="试验与事件"></a>试验与事件</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>试验</strong>（Experiment）：按照一定的想法去做的事情称为随机试验，简称试验，这是指一个可以重复进行，且结果不确定的过程。掷一次骰子就是一个试验。<br>掷一个硬币, 观察是否正面朝上,</p>
+<p><strong>样本空间</strong>（Sample Space）：这是指一个试验所有可能结果的集合。 一个标准的六面骰子，所有可能的结果是{1, 2, 3, 4, 5, 6}。</p>
+<p>投掷一枚硬币W+表示硬币正面朝上，W-表示硬币反面朝上，试验两个可能的结果：W+  和W- . 我们称W+和W-是样本点</p>
+<p>事件（Event）：这是样本空间的一个子集，是试验中我们所关心的。用AB表示A∩B，当AB &#x3D; φ也用A + B表示A U B<br>相容和对立事件。事件的运算公式就是集合的运算公式</p>
+<h1 id="古典概率概型"><a href="#古典概率概型" class="headerlink" title="古典概率概型"></a>古典概率概型</h1><p>用# A, # Ω分别表示事件A和样本空间Ω的样本点的个数</p>
+<h2 id="基本公式"><a href="#基本公式" class="headerlink" title="基本公式"></a>基本公式</h2><p>P(A) &#x3D; P(AB) + P(A非B)<br>P(A) &#x3D; # A&#x2F; # Ω<br>Am n &#x3D; n!&#x2F;(n-m)!<br>Cm n &#x3D; n!&#x2F;(n-m)!m!<br>将n个不同的元素分成有次序的k组，不考虑每组中元素的次序，第i(1 ≤ i ≤ n)组恰有ni个元素的不同可能数是：<br>例题可看：（p74）</p>
+]]></content>
+      <categories>
+        <category>课业</category>
+        <category>笔记</category>
+        <category>概率统计</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>离散数学基础</title>
+    <url>/2025/10/13/%E5%A4%A7%E4%BA%8C%E4%B8%8A-%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6-%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<div class="ai-summary-dashed-container">
+  <div class="ai-summary-content">
+    <div class="ai-summary-header">
+      <div class="ai-summary-tag">AI 摘要</div>
+      <div class="ai-summary-slogan">AI已为您提炼精华</div>
+    </div>
+    <div class="ai-summary-body"><p class="ai-summary-text"><span>综述集合论与运算、关系矩阵与性质及特征函数，梳理离散数学的核心框架。</span></p></div>
+  </div>
+</div>
+
+<h1 id="离散数学基础"><a href="#离散数学基础" class="headerlink" title="离散数学基础"></a>离散数学基础</h1><p><strong>参考书目</strong>：Discrete Mathematical Structures (Sixth Edition)</p>
+<h2 id="集合论-Set-Theory"><a href="#集合论-Set-Theory" class="headerlink" title="集合论 (Set Theory)"></a>集合论 (Set Theory)</h2><h3 id="集合的基本概念"><a href="#集合的基本概念" class="headerlink" title="集合的基本概念"></a>集合的基本概念</h3><h4 id="集合的定义与性质"><a href="#集合的定义与性质" class="headerlink" title="集合的定义与性质"></a>集合的定义与性质</h4><ul>
+<li>集合 (Set)：由确定的、互不相同的对象组成的整体</li>
+<li>元素 (Element)：组成集合的对象</li>
+<li>性质：确定性、互异性、无序性</li>
+</ul>
+<h4 id="集合的表示方式"><a href="#集合的表示方式" class="headerlink" title="集合的表示方式"></a>集合的表示方式</h4><ol>
+<li>列举法：$A &#x3D; {1, 2, 3, 4, 5}$</li>
+<li>描述法：$A &#x3D; {x | x \text{ 满足条件 } P(x)}$</li>
+<li>图示法：文式图 (Venn Diagram)</li>
+</ol>
+<h4 id="特殊集合"><a href="#特殊集合" class="headerlink" title="特殊集合"></a>特殊集合</h4><ul>
+<li>全集 (Universal Set)：$U$ 或 $\Omega$</li>
+<li>空集 (Empty Set)：$\emptyset$ 或 ${}$</li>
+<li>自然数集：$\mathbb{N} &#x3D; {0, 1, 2, 3, \ldots}$</li>
+<li>整数集：$\mathbb{Z} &#x3D; {\ldots, -2, -1, 0, 1, 2, \ldots}$</li>
+<li>有理数集：$\mathbb{Q}$</li>
+<li>实数集：$\mathbb{R}$</li>
+</ul>
+<h3 id="集合间的关系"><a href="#集合间的关系" class="headerlink" title="集合间的关系"></a>集合间的关系</h3><h4 id="基本关系"><a href="#基本关系" class="headerlink" title="基本关系"></a>基本关系</h4><ul>
+<li>属于关系：$x \in A$（$x$ 属于集合 $A$）</li>
+<li>不属于关系：$x \notin A$（$x$ 不属于集合 $A$）</li>
+<li>子集关系：$A \subseteq B \Leftrightarrow \forall x (x \in A \Rightarrow x \in B)$</li>
+<li>真子集关系：$A \subset B \Leftrightarrow A \subseteq B \land A \neq B$</li>
+<li><strong>相等关系</strong>：$A &#x3D; B \Leftrightarrow A \subseteq B \land B \subseteq A$</li>
+</ul>
+<h4 id="笛卡尔积-Cartesian-Product"><a href="#笛卡尔积-Cartesian-Product" class="headerlink" title="笛卡尔积 (Cartesian Product)"></a>笛卡尔积 (Cartesian Product)</h4><p>设 $A$ 和 $B$ 是两个集合，则 $A$ 和 $B$ 的<strong>笛卡尔积</strong>定义为：<br>$$A \times B &#x3D; {(a, b) | a \in A \land b \in B}$$</p>
+<p><strong>性质</strong>：</p>
+<ul>
+<li>$|A \times B| &#x3D; |A| \cdot |B|$</li>
+<li>$A \times \emptyset &#x3D; \emptyset \times A &#x3D; \emptyset$</li>
+<li>$(A \cup B) \times C &#x3D; (A \times C) \cup (B \times C)$</li>
+<li>$(A \cap B) \times C &#x3D; (A \times C) \cap (B \times C)$</li>
+</ul>
+<h3 id="集合的重要性质"><a href="#集合的重要性质" class="headerlink" title="集合的重要性质"></a>集合的重要性质</h3><h4 id="幂集-Power-Set"><a href="#幂集-Power-Set" class="headerlink" title="幂集 (Power Set)"></a>幂集 (Power Set)</h4><p>集合 $A$ 的<strong>幂集</strong> $\mathcal{P}(A)$ 是 $A$ 的所有子集组成的集合：</p>
+<p>$$\mathcal{P}(A) &#x3D; {S | S \subseteq A}$$</p>
+<p><strong>幂集的基数</strong>：若 $|A| &#x3D; n$，则 $|\mathcal{P}(A)| &#x3D; 2^n$（所以称幂）</p>
+<p><strong>示例</strong>：若 $A &#x3D; {1, 2}$，则：<br>$$\mathcal{P}(A) &#x3D; {\emptyset, {1}, {2}, {1,2}}$$</p>
+<h4 id="基数-Cardinality"><a href="#基数-Cardinality" class="headerlink" title="基数 (Cardinality)"></a>基数 (Cardinality)</h4><p>集合 $A$ 的<strong>基数</strong> $|A|$ 表示集合中元素的个数。</p>
+<ul>
+<li><strong>有限集</strong>：$|A| &#x3D; n$（$n \in \mathbb{N}$）</li>
+</ul>
+<h5 id="容斥原理-Inclusion-Exclusion-Principle"><a href="#容斥原理-Inclusion-Exclusion-Principle" class="headerlink" title="容斥原理 (Inclusion-Exclusion Principle)"></a>容斥原理 (Inclusion-Exclusion Principle)</h5><p><strong>二集合容斥原理</strong>：<br>$$|A \cup B| &#x3D; |A| + |B| - |A \cap B|$$</p>
+<p><strong>三集合容斥原理</strong>：<br>$$|A \cup B \cup C| &#x3D; |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$$</p>
+<p><strong>一般形式</strong>（$n$ 个集合）：<br>$$\left|\bigcup_{i&#x3D;1}^{n} A_i\right| &#x3D; \sum_{i&#x3D;1}^{n} |A_i| - \sum_{1 \leq i &lt; j \leq n} |A_i \cap A_j| + \sum_{1 \leq i &lt; j &lt; k \leq n} |A_i \cap A_j \cap A_k| - \cdots + (-1)^{n+1} \left|\bigcap_{i&#x3D;1}^{n} A_i\right|$$</p>
+<p><strong>补集形式</strong>：<br>$$|\overline{A \cup B \cup C}| &#x3D; |\overline{A} \cap \overline{B} \cap \overline{C}| &#x3D; |U| - |A \cup B \cup C|$$</p>
+<p>集合基数相关的证明：<strong>拆分为两个不相交的集合</strong><br>$$|A \cup B| &#x3D; |A - B| + |B| &#x3D; |A| + |B - A|$$</p>
+<h3 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h3><h4 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h4><ul>
+<li>并集 (Union)：$A \cup B &#x3D; {x | x \in A \lor x \in B}$</li>
+<li>交集 (Intersection)：$A \cap B &#x3D; {x | x \in A \land x \in B}$</li>
+<li>差集 (Difference)：$A - B &#x3D; {x | x \in A \land x \notin B}$</li>
+<li>补集 (Complement)：$\overline{A} &#x3D; U - A &#x3D; {x | x \in U \land x \notin A}$</li>
+<li><strong>对称差</strong> (Symmetric Difference)：$A \triangle B &#x3D; (A - B) \cup (B - A)$<br>$$A \triangle B &#x3D; (A \cup B) - (A \cap B) &#x3D; (A - B) \cup (B - A)$$<br>笛卡尔积：<br><strong>划分</strong>：所有的元素唯一地分到不同的集合里面，那些集合的整体构成一个划分，其中某个集合叫原集合的<strong>分块</strong><br>A的划分是A的幂集的子集</li>
+</ul>
+<h3 id="集合运算的性质"><a href="#集合运算的性质" class="headerlink" title="集合运算的性质"></a>集合运算的性质</h3><h4 id="基本定律"><a href="#基本定律" class="headerlink" title="基本定律"></a>基本定律</h4><ol>
+<li><p>交换律 (Commutative Laws)：</p>
+<ul>
+<li>$A \cup B &#x3D; B \cup A$</li>
+<li>$A \cap B &#x3D; B \cap A$</li>
+</ul>
+</li>
+<li><p>结合律 (Associative Laws)：</p>
+<ul>
+<li>$(A \cup B) \cup C &#x3D; A \cup (B \cup C)$</li>
+<li>$(A \cap B) \cap C &#x3D; A \cap (B \cap C)$</li>
+</ul>
+</li>
+<li><p><strong>分配律</strong> (Distributive Laws)：</p>
+<ul>
+<li>$A \cup (B \cap C) &#x3D; (A \cup B) \cap (A \cup C)$</li>
+<li>$A \cap (B \cup C) &#x3D; (A \cap B) \cup (A \cap C)$</li>
+</ul>
+</li>
+<li><p><strong>德摩根定律</strong> (De Morgan’s Laws)：</p>
+<ul>
+<li>$\overline{A \cup B} &#x3D; \overline{A} \cap \overline{B}$</li>
+<li>$\overline{A \cap B} &#x3D; \overline{A} \cup \overline{B}$</li>
+</ul>
+</li>
+<li><p>恒等律 (Identity Laws)：</p>
+<ul>
+<li>$A \cup \emptyset &#x3D; A$</li>
+<li>$A \cap U &#x3D; A$</li>
+</ul>
+</li>
+<li><p>零律 (Null Laws)：</p>
+<ul>
+<li>$A \cup U &#x3D; U$</li>
+<li>$A \cap \emptyset &#x3D; \emptyset$</li>
+</ul>
+</li>
+<li><p>补律 (Complement Laws)：</p>
+<ul>
+<li>$A \cup \overline{A} &#x3D; U$</li>
+<li>$A \cap \overline{A} &#x3D; \emptyset$</li>
+<li>$\overline{\overline{A}} &#x3D; A$</li>
+</ul>
+</li>
+</ol>
+<p>乘积集合的运算性质：</p>
+<ul>
+<li><strong>分配律</strong>：$A \times (B \cup C) &#x3D; (A \times B) \cup (A \times C)$</li>
+<li><strong>结合律</strong>：</li>
+</ul>
+<h4 id="关系-Relations"><a href="#关系-Relations" class="headerlink" title="关系 (Relations)"></a>关系 (Relations)</h4><p>由笛卡尔积引出的内容</p>
+<p><strong>关系的定义</strong>：设 $A$ 和 $B$ 是两个集合，则称 $A \times B$ 的任意子集 $R$ 为从 $A$ 到 $B$ 的一个<strong>关系</strong>，记作 $R \subseteq A \times B$。</p>
+<p><strong>特殊关系</strong>：</p>
+<ul>
+<li><strong>空关系</strong>：$R &#x3D; \emptyset$（空集）</li>
+<li><strong>全关系</strong>：$R &#x3D; A \times A$（全集）</li>
+</ul>
+<p>关系 $R$ 是一个特殊的集合（乘积集合的子集）</p>
+<p><strong>关系的表示</strong>：</p>
+<ul>
+<li>$a$ 与 $b$ 是 $R$ 相关的：记作 $(a, b) \in R$ 或 $aRb$</li>
+<li><strong>特征函数</strong>的记法：$\chi_R(a, b) &#x3D; \begin{cases} 1, &amp; \text{if } (a, b) \in R \ 0, &amp; \text{if } (a, b) \notin R \end{cases}$</li>
+</ul>
+<p><strong>关系的基本概念</strong>：</p>
+<ul>
+<li><strong>定义域</strong> (Domain)：$\text{dom}(R) &#x3D; {a \in A | \exists b \in B, (a, b) \in R}$</li>
+<li><strong>值域</strong> (Range)：$\text{ran}(R) &#x3D; {b \in B | \exists a \in A, (a, b) \in R}$</li>
+<li><strong>集合 $A_1$ 对于关系 $R$ 的像集</strong>：$R(A_1) &#x3D; {b \in B | \exists a \in A_1, (a, b) \in R}$</li>
+<li><strong>$x$ 关于 $R$ 的像集</strong>：$R({x}) &#x3D; {y | (x, y) \in R}$</li>
+</ul>
+<h5 id="关系矩阵-Relation-Matrix"><a href="#关系矩阵-Relation-Matrix" class="headerlink" title="关系矩阵 (Relation Matrix)"></a>关系矩阵 (Relation Matrix)</h5><p>像使用特征函数表示集合一样，我们可以使用关系矩阵来表示关系。</p>
+<p>设 $A &#x3D; {a_1, a_2, \ldots, a_m}$，$B &#x3D; {b_1, b_2, \ldots, b_n}$，关系 $R \subseteq A \times B$，则关系矩阵 $M_R &#x3D; [m_{ij}]<em>{m \times n}$，其中：<br>$$m</em>{ij} &#x3D; \begin{cases}<br>1, &amp; \text{if } (a_i, b_j) \in R \<br>0, &amp; \text{if } (a_i, b_j) \notin R<br>\end{cases}$$</p>
+<h5 id="关系的运算"><a href="#关系的运算" class="headerlink" title="关系的运算"></a>关系的运算</h5><p><strong>合成运算</strong> “$\circ$”：设 $R$ 是 $A$ 到 $B$ 的一个关系，$S$ 是 $B$ 到 $C$ 的一个关系，则称 $S \circ R$ 是 $A$ 到 $C$ 的<strong>复合（合成）关系</strong>：<br>$$S \circ R &#x3D; {(a, c) | a \in A, c \in C, \exists b \in B, (a, b) \in R \land (b, c) \in S}$$</p>
+<p><strong>矩阵表示</strong>：$(S \circ R)$ 的关系矩阵等价为矩阵的乘法：$M_{S \circ R} &#x3D; M_R \cdot M_S$</p>
+<p><strong>恒等关系</strong>：若 $R \circ S &#x3D; S \circ R &#x3D; R$，则 $S$ 对应的矩阵为<strong>单位矩阵</strong> $I$</p>
+<p><strong>关系的幂运算</strong>：</p>
+<ul>
+<li><strong>定义</strong>：$R^n &#x3D; \underbrace{R \circ R \circ \cdots \circ R}_{n \text{ 次}}$</li>
+<li><strong>公式</strong>：$R^0 &#x3D; I_A$（恒等关系），$R^{n+1} &#x3D; R^n \circ R$</li>
+</ul>
+<p><strong>传递闭包</strong>：</p>
+<ul>
+<li>$R$ 的<strong>关联关系</strong>（$R^{\infty}$）：$R^{\infty} &#x3D; R^1 \cup R^2 \cup R^3 \cup \cdots$</li>
+<li><strong>可达关系</strong>：从 $a$ 到 $b$ 存在路径的关系</li>
+</ul>
+<p>相对于看图来说，代数计算显然更方便</p>
+<h5 id="关系合成的性质"><a href="#关系合成的性质" class="headerlink" title="关系合成的性质"></a>关系合成的性质</h5><p><strong>结合律</strong>：$(R \circ S) \circ T &#x3D; R \circ (S \circ T)$<br><strong>分配律</strong>：$R \circ (S \cup T) &#x3D; (R \circ S) \cup (R \circ T)$<br><strong>单位元</strong>：$R \circ I_A &#x3D; I_B \circ R &#x3D; R$（其中 $I_A$、$I_B$ 分别是 $A$、$B$ 上的恒等关系）</p>
+<h5 id="关系的性质"><a href="#关系的性质" class="headerlink" title="关系的性质"></a>关系的性质</h5><p>设 $R$ 是集合 $A$ 上的关系（即 $R \subseteq A \times A$），则：</p>
+<p><strong>自反性</strong> (Reflexive)：$\forall a \in A, (a, a) \in R$<br><strong>反自反性</strong> (Irreflexive)：$\forall a \in A, (a, a) \notin R$<br><strong>对称性</strong> (Symmetric)：$\forall a, b \in A, (a, b) \in R \Rightarrow (b, a) \in R$<br><strong>反对称性</strong> (Antisymmetric)：$\forall a, b \in A, (a, b) \in R \land (b, a) \in R \Rightarrow a &#x3D; b$<br><strong>传递性</strong> (Transitive)：$\forall a, b, c \in A, (a, b) \in R \land (b, c) \in R \Rightarrow (a, c) \in R$</p>
+<h5 id="关系与有向图-Relations-and-Directed-Graphs"><a href="#关系与有向图-Relations-and-Directed-Graphs" class="headerlink" title="关系与有向图 (Relations and Directed Graphs)"></a>关系与有向图 (Relations and Directed Graphs)</h5><p><strong>图的定义</strong>：称序对 $G &#x3D; (V, E)$ 为图。其中，$V$ 表示顶点集合，$E$ 表示边集合（顶点之间的连线，称之为边）。如果顶点之间的连线具有方向性，则称该图为<strong>有向图</strong>。</p>
+<p><strong>度的概念</strong>：</p>
+<ul>
+<li>顶点的<strong>入度</strong> (In-degree)：$\text{deg}^-(v) &#x3D; |{u \in V | (u, v) \in E}|$（进入该顶点的边数）</li>
+<li>顶点的<strong>出度</strong> (Out-degree)：$\text{deg}^+(v) &#x3D; |{u \in V | (v, u) \in E}|$（离开该顶点的边数）</li>
+</ul>
+<p><strong>路径</strong> (Path)：从顶点 $v_0$ 到顶点 $v_n$ 的路径是顶点序列 $v_0, v_1, v_2, \ldots, v_n$，其中 $(v_i, v_{i+1}) \in E$，$i &#x3D; 0, 1, \ldots, n-1$。</p>
+<p><strong>等价性</strong>：针对有限论域，关系、矩阵和图是相互等价的</p>
+<ul>
+<li>关系 $R \subseteq A \times A$</li>
+<li>关系矩阵 $M_R$</li>
+<li>有向图 $G &#x3D; (A, R)$</li>
+</ul>
+<p><strong>图论中的概念</strong>：</p>
+<ul>
+<li><strong>简单路径</strong>：所有顶点都不相同的路径</li>
+<li><strong>回路</strong> (Cycle)：起点和终点相同的路径，即 $v_0 &#x3D; v_n$</li>
+<li><strong>连通性</strong>：如果存在从顶点 $u$ 到顶点 $v$ 的路径，则称 $u$ 和 $v$ 是连通的</li>
+<li><strong>强连通图</strong>：对于任意两个顶点 $u, v$，都存在从 $u$ 到 $v$ 和从 $v$ 到 $u$ 的路径</li>
+</ul>
+<p><strong>矩阵运算与图的关系</strong>：</p>
+<ul>
+<li>$M_R^n$ 的第 $(i, j)$ 元素表示从顶点 $i$ 到顶点 $j$ 长度为 $n$ 的路径数</li>
+<li>可达矩阵：$M_{R^*} &#x3D; M_R^0 + M_R^1 + M_R^2 + \cdots$（布尔运算）</li>
+</ul>
+<h3 id="特征函数-Characteristic-Function"><a href="#特征函数-Characteristic-Function" class="headerlink" title="特征函数 (Characteristic Function)"></a>特征函数 (Characteristic Function)</h3><p>集合 $A$ 的<strong>特征函数</strong> $\chi_A: U \to {0, 1}$ 定义为：</p>
+<p>$$\chi_A(x) &#x3D; \begin{cases}<br>1, &amp; \text{if } x \in A \<br>0, &amp; \text{if } x \notin A<br>\end{cases}$$</p>
+<h4 id="特征函数与集合运算的关系"><a href="#特征函数与集合运算的关系" class="headerlink" title="特征函数与集合运算的关系"></a>特征函数与集合运算的关系</h4><p>设 $U$ 是全集，$A, B \subseteq U$，则：</p>
+<ul>
+<li><strong>并集</strong>：$\chi_{A \cup B}(x) &#x3D; \max(\chi_A(x), \chi_B(x)) &#x3D; \chi_A(x) + \chi_B(x) - \chi_A(x)\chi_B(x)$</li>
+<li><strong>交集</strong>：$\chi_{A \cap B}(x) &#x3D; \min(\chi_A(x), \chi_B(x)) &#x3D; \chi_A(x) \cdot \chi_B(x)$</li>
+<li><strong>补集</strong>：$\chi_{\overline{A}}(x) &#x3D; 1 - \chi_A(x)$</li>
+<li><strong>对称差</strong>：$\chi_{A \triangle B}(x) &#x3D; \chi_A(x) + \chi_B(x) - 2\chi_A(x)\chi_B(x) &#x3D; |\chi_A(x) - \chi_B(x)|$</li>
+<li><strong>差集</strong>：$\chi_{A - B}(x) &#x3D; \chi_A(x) \cdot (1 - \chi_B(x)) &#x3D; \chi_A(x) \cdot \chi_{\overline{B}}(x)$</li>
+</ul>
+<p>特征函数将集合运算与代数运算联系起来，为集合论提供了代数化的处理方法。<br><strong>可以使用特征函数证明集合相等</strong></p>
+<h4 id="集合乘积的特征函数"><a href="#集合乘积的特征函数" class="headerlink" title="集合乘积的特征函数"></a>集合乘积的特征函数</h4><p>设 $A \subseteq X$，$B \subseteq Y$，则笛卡尔积 $A \times B$ 的特征函数定义为：<br>$$\chi_{A \times B}(x, y) &#x3D; \chi_A(x) \cdot \chi_B(y)$$</p>
+<p>其中 $(x, y) \in X \times Y$。</p>
+<p><strong>性质</strong>：</p>
+<ul>
+<li>$\chi_{(A_1 \cup A_2) \times B}(x, y) &#x3D; \chi_{A_1 \times B}(x, y) + \chi_{A_2 \times B}(x, y) - \chi_{A_1 \times B}(x, y) \cdot \chi_{A_2 \times B}(x, y)$</li>
+<li>$\chi_{(A_1 \cap A_2) \times B}(x, y) &#x3D; \chi_{A_1 \times B}(x, y) \cdot \chi_{A_2 \times B}(x, y)$</li>
+<li>$\chi_{A \times (B_1 \cup B_2)}(x, y) &#x3D; \chi_{A \times B_1}(x, y) + \chi_{A \times B_2}(x, y) - \chi_{A \times B_1}(x, y) \cdot \chi_{A \times B_2}(x, y)$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>课业</category>
+        <category>笔记</category>
+        <category>离散数学</category>
+      </categories>
+  </entry>
+  <entry>
     <title>教育</title>
     <url>/2025/02/26/%E6%95%99%E8%82%B2/</url>
     <content><![CDATA[<p>在现代教育体制中，弥漫着一种近乎窒息氛围。这是一种师生共同编织的“形式主义、教条主义”氛围——沉溺于知识表象和已有框架氛围、对“天赋”之偶像化崇拜氛围。在这一环境中，教育的核心已悄然滑向了机械化的知识转述和存储——对知识表面的执着复述。将逐步被计算机所替代执行的任务却反客为主，成为学习者们主要的学习内容，简直是在侮辱作为人应有的独特性。既定的教育模式仍然凝固于数十年前的状态，与真正意义上的思维优化训练与直觉锻炼相去甚远。创造性、理性被排斥于边缘，那些最接近智慧之本质的观念和应有的思维锤炼，却因其表面上的“非实用性”而遭受冷遇。<br>试想，若将法国哲学高考中那些具有辩证性质与思想深度的难题交予我们的中学生，他们会如何作答？这一从教育者口中流露出的略带轻蔑性的质疑，使我再一次意识到原来我们的教育悲剧已经成为了如此闭环。<br>在陈旧的教条和规范下，教育者们往往为了完成教学任务和应对考纲的要求，回避对知识本质的探讨，唯恐拖慢教学进度。如此，教育停留在知识的表面，走了一条看似是捷径、实则最曲折的道路。学生们没有得到正确的引导，缺乏真正的思维训练和直觉培养，反而被层层抽象的知识所困扰，被功利化的目标所驱使。他们被告知，这种模式是合理的、是公平的，他们就应该在此之上不断尝试不断努力。但是，即使万分努力，他们也难以解决考试问题，更无法真正找到自我学习的方向与方法。<br>大部分学生们半清醒半绝望，开始将这一切归为自身智力的因素，他们于是觉得自己终于醒悟，揭露了“真相”，成功地批判了旧观念的“鸡汤”，形成“一个人努力学习而成绩一般，那便最该鄙视；倘若成绩不错，那倒正常，位列次席；万一这人成绩不错时还能坚持天天打游戏，那就更要奉为至高无上的大神了“的令人窒息氛围，鄙视那些仍在挣扎的同伴，以此来获得一种虚假的优越感。教育者们也渐渐认定，自己的学生们掌握不了难的知识，理解不了本质的东西。学生们也逐步认为教育的实际就应该是这样，于是，一旦面对难题或本质性问题，便选择沉默；当听到“不考”时，便哗然一片，轻松应付。<br>学生们越是逃避漫长而曲折的自我思考，急匆匆地追寻考试成绩和盲目学习新知识，没有自我反思和他人指引，真正的思维能力就越得不到培养，离真正地解决考试难题和自我学习问题的能力也就越远，他们的功利目标就会随之愈强烈，越难以有耐心有毅力去琢磨那些深刻的问题，更有甚者以“智商”作为标尺，相互鄙夷，教育者也越不愿意提出具有创造性的问题，如此死循环下去……其中不知有多少人失却了学习的乐趣，不仅无法窥见学习之内在价值，甚至衍生出对知识的深深厌倦。般惨状，得让多少哲学家书尽哲学沉思来为之心寒，多少教育者们苦思冥想为之叹惋。<br>教育者们本应该引领学生从创造者与发明者的视角，一步步提现实生活中会出现的问题，并引导学生们自己去产生直观，去自己创造概念设计问题。引导学生在直观的基础上推导出严格化的论述，在所创造出的结论中不断进行优化与分析，最终形成更加完善与深刻的结论。然而，现实的教育却偏偏囿于只从观察者的角度去学习和理解，变得功利且只注重 “提分效率”，拘泥于“遇到题目便应条件反射式地想到”，那些死板的公式和套路，那些冗杂的大量的运算和套路练习。然而没有真正的直觉上、思维上的训练和经过反复优化的个人思考习惯，这些工作只是看上帮助学生进行了知识获取和训练，但实际上却造成了思维上的层层负担、思维塑造和思维固化，让学生成为知识的载体与记忆体而非知识的开创者，逐渐消磨学生的创新力，也让知识难以跳出既有框架，难以再创新。<br>为了打破如此铁幕和牢囚，学习者们也必须抛弃掉浮躁的唯分数论的心理，停下与周围人的攀比，真正静下来，主动对自己发问，凭借着自身的思考，对知识和问题本质进行漫长的探寻，不断地反思自我思考过程和纠正自身直觉，掌握真正的知识，培养真正的思维。这样不仅能在“考试”上轻松取得优异成绩，也能够抓住学习的本质，体会到学习的最深刻的的最纯粹的快乐——在你的不断探索之中，问题的解决逐渐露出痕迹、你的思维、直觉、对世界的认知不断地优化，你可以真正热爱上学习，愿意终身学习，成为掌握真正的知识的创造者。<br>当下，这些真正能够展现人类精神内涵的学习方式，在这场以功利为导向的“知识“竞赛中竟然被视为“无用”的消耗。然而，我们必须反思的是，恰是这些貌似“低效”的路径，蕴含着通向智慧深渊的无限可能：它们看似冗长，却通往最具坚实性的思维地基；看似迂回，却揭示了通向真理之捷径。正如柏拉图在《理想国》中所描绘的洞穴隐喻：个体必须挣脱感官与表象的束缚，攀升至理念的彼岸。</p>
 ]]></content>
       <categories>
         <category>思索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>作业（分类占位）</title>
-    <url>/2025/02/26/%E8%AF%BE%E4%B8%9A-%E4%BD%9C%E4%B8%9A-%E5%88%86%E7%B1%BB%E5%8D%A0%E4%BD%8D/</url>
-    <content><![CDATA[<p>此文章用于在分类页中创建「课业 &#x2F; 笔记」分类结构的占位。</p>
-]]></content>
-      <categories>
-        <category>课业</category>
-        <category>作业</category>
       </categories>
   </entry>
   <entry>
@@ -30,9 +397,29 @@
       </categories>
   </entry>
   <entry>
+    <title>作业（分类占位）</title>
+    <url>/2025/02/26/%E8%AF%BE%E4%B8%9A-%E4%BD%9C%E4%B8%9A-%E5%88%86%E7%B1%BB%E5%8D%A0%E4%BD%8D/</url>
+    <content><![CDATA[<p>此文章用于在分类页中创建「课业 &#x2F; 笔记」分类结构的占位。</p>
+]]></content>
+      <categories>
+        <category>课业</category>
+        <category>作业</category>
+      </categories>
+  </entry>
+  <entry>
     <title>静</title>
     <url>/2025/09/24/%E9%9D%99/</url>
-    <content><![CDATA[<p>不知自何时起，周遭的空气仿佛变得稀薄而滚烫，一种无声的浮躁，如弥散的烟尘，悄然弥漫于你我周遭的空气。我亲爱的朋友，请你告诉我，这弥散于我们生命中的尘埃，这让我们与沉静的自我渐行渐远的迷雾，究竟从何而来？</p>
+    <content><![CDATA[<div class="ai-summary-dashed-container">
+  <div class="ai-summary-content">
+    <div class="ai-summary-header">
+      <div class="ai-summary-tag">AI 摘要</div>
+      <div class="ai-summary-slogan">AI已为您提炼精华</div>
+    </div>
+    <div class="ai-summary-body"><p class="ai-summary-text"><span>反思浮躁与内卷，倡导通过自我探索与冥想寻回内心的宁静与生活的热爱。</span></p></div>
+  </div>
+</div>
+
+<p>不知自何时起，周遭的空气仿佛变得稀薄而滚烫，一种无声的浮躁，如弥散的烟尘，悄然弥漫于你我周遭的空气。我亲爱的朋友，请你告诉我，这弥散于我们生命中的尘埃，这让我们与沉静的自我渐行渐远的迷雾，究竟从何而来？</p>
 <p>是我们行囊中那份沉甸甸的清单吗？学业的绩点、竞赛的奖杯、科研的署名、学生工作的履历、保研的阶梯、奖学金的数字、实习经历的光环……它们如同路途上的石子，起初是前行路上的垫脚石，后来反而却成了压垮步履的重负。是向那个名为“人工智能”的便捷神使，献上了太多的虔诚吗？以至于我们遗忘了，独自在知识的旷野中摸索的勇气。是源于网络世界的那一场场短暂的烟火吗？那些抽象的段子与迷因，如流星划过，却留下一阵捧腹的空洞；我们每日上线”收取“游戏里的“菜”，在数据的增减中，收获着虚拟的慰藉。</p>
 <p>当然你可能会说，当自己已经忙碌和困倦了一整天的时候，偶尔刷刷视频、看看消息、玩玩游戏、闲聊一下，已经是很快捷的令人愉悦的放松方式，况且现在的社会内卷这么严重。</p>
 <p>人们对这些能快速带来满足感的事情的追求，我并不感到鄙夷或者说诸如此类，每个人去做什么样的事情，怎么去思考，都有自己选择的理由，都有对方渴望的一些价值和意义，或许也或多或少地受到了来自时间和空间（无论是过去经历还是环境和氛围）的影响，这无可指摘。但当这些东西以较坏的方式影响到了我们的身心，阻碍了我们对生活的探索和追求的时候，我们就应该思考，如何以正确地方式面对和处理这些东西，面对许许多多的压力，面对看不清的未来的路，以及充满焦虑和内卷的社会。</p>
@@ -40,5 +427,8 @@
 <p>或许我们应该真正多花点时间去探索自己想要去做的，不断地探索、发现和尝试，遇到东西之后沉下心来学习，去追问去发自内心地认同那些知识而不是浅尝辄止，不是那种装作完全理解其实只是熟悉并记住了，也不要总是想着依赖各种东西走捷径。</p>
 <p>或许我们也应该静下来，多花一点时间冥想，去和自己单独相处，去好好作息，什么都不做单纯地吃个饭，静下来走走路，去好好生活，也许这样，等我们的内心更宁静和坚定，目标更清晰和明确之后，我们就不会再被那些世俗重重束缚住，能够坦然处之，能真正去享受生活热爱生活。</p>
 ]]></content>
+      <categories>
+        <category>思索</category>
+      </categories>
   </entry>
 </search>
