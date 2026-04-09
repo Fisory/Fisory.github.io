@@ -9,7 +9,22 @@
   <link href="https://fisory.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, Slience</rights>
   <title>Slience</title>
-  <updated>2026-04-09T10:26:56.101Z</updated>
+  <updated>2026-04-09T12:57:24.296Z</updated>
+  <entry>
+    <author>
+      <name>Slience</name>
+    </author>
+    <content>
+      <![CDATA[<p>测试</p>]]>
+    </content>
+    <id>https://fisory.github.io/2026/04/09/%E6%B5%8B%E8%AF%95/</id>
+    <link href="https://fisory.github.io/2026/04/09/%E6%B5%8B%E8%AF%95/"/>
+    <published>2026-04-09T12:57:24.296Z</published>
+    <summary>
+      <![CDATA[<p>测试</p>]]>
+    </summary>
+    <updated>2026-04-09T12:57:24.296Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Slience</name>
@@ -27,7 +42,7 @@
     <div class="ai-summary-body"><p]]>
     </summary>
     <title>静</title>
-    <updated>2026-04-09T10:26:56.101Z</updated>
+    <updated>2026-04-09T12:57:24.296Z</updated>
   </entry>
   <entry>
     <author>
@@ -46,6 +61,6 @@
     <div class="ai-summary-body"><p]]>
     </summary>
     <title>教育</title>
-    <updated>2026-04-09T10:26:56.101Z</updated>
+    <updated>2026-04-09T12:57:24.296Z</updated>
   </entry>
 </feed>
