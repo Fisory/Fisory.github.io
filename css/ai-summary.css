@@ -12,7 +12,7 @@
 }
 .ai-summary-dashed-container:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px var(--theme-link-opa);
+  box-shadow: 0 6px 18px var(--link-a20, rgba(68, 138, 255, 0.2));
 }
 .ai-summary-dashed-container::after {
   content: '';
@@ -35,7 +35,7 @@
 .ai-summary-content { display: flex; flex-direction: column; gap: 0.5rem; }
 .ai-summary-header { display: flex; align-items: center; }
 .ai-summary-tag {
-  background: var(--theme-link);
+  background: var(--link, #448aff);
   padding: 0.3rem 0.8rem;
   border-radius: 16px;
   font-weight: 600;
@@ -44,7 +44,7 @@
   white-space: nowrap;
 }
 .ai-summary-slogan { margin-left: 0.6rem; color: var(--text-p2); font-size: 0.9rem; white-space: nowrap; }
-.ai-summary-slogan::after { margin-left: 3px; font-weight: 700; color: var(--theme-link); content: '|'; animation: ai-blink-caret 0.75s step-end infinite; }
+.ai-summary-slogan::after { margin-left: 3px; font-weight: 700; color: var(--link, #448aff); content: '|'; animation: ai-blink-caret 0.75s step-end infinite; }
 .ai-summary-body { line-height: 2; color: var(--text); font-size: 0.95rem; margin-bottom: 0.5rem; opacity: 0; animation: ai-fadeIn 0.8s forwards 0.2s; }
 .ai-summary-text { margin: 0; }
 

@@ -1,0 +1,113 @@
+/* 站点级样式。不要直接修改 node_modules/hexo-theme-stellar。 */
+.custom-footer {
+  text-align: center;
+  line-height: 1.6;
+}
+
+.custom-footer a {
+  font-weight: 700;
+}
+
+.custom-footer .site-runtime {
+  margin-top: 0.5rem;
+}
+
+.custom-aside {
+  color: var(--text-p1, #333);
+  font-size: 14px;
+}
+
+.custom-aside .card {
+  margin-bottom: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--card, #fff);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.custom-aside .profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.custom-aside .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-aside h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.custom-aside .motto {
+  min-height: 1.4em;
+  margin: 8px 0 0;
+  color: var(--text-p2, #666);
+}
+
+.custom-aside hr {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px dashed var(--block-border, #e5e7eb);
+}
+
+.custom-aside .section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 6px;
+  color: var(--text-p1, #111827);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.custom-aside .notice .mail-link {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--link, #2563eb);
+  text-decoration: none;
+  background: var(--card, #fff);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-aside .notice .mail-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(59, 130, 246, 0.35);
+}
+
+.custom-aside .random-btn {
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #60a5fa, #34d399);
+  box-shadow: 0 8px 22px rgba(52, 211, 153, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.custom-aside .random-btn:hover {
+  transform: translateY(-1px);
+}
+
+.custom-aside .audio {
+  width: 100%;
+  height: 36px;
+}
+
+.article-footer #share .link::before {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text-p3);
+  font-size: 0.75rem;
+  content: "此文章的链接";
+}

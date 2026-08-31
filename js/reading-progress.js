@@ -1,6 +1,9 @@
 (function () {
   'use strict';
 
+  // 仅在正式文章详情页显示；随想、项目和列表页有各自的阅读结构。
+  if (!document.querySelector('.l_body[layout="post"]')) return;
+
   var bar = document.createElement('div');
   bar.id = 'reading-progress-bar';
   Object.assign(bar.style, {
@@ -9,7 +12,7 @@
     left: '0',
     width: '0%',
     height: '3px',
-    background: 'var(--theme-link, #448aff)',
+    background: 'var(--link, #448aff)',
     zIndex: '9999',
     transition: 'width 0.1s linear',
     borderRadius: '0 2px 2px 0',

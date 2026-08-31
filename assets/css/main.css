@@ -3,11 +3,11 @@
   /* Map to theme variables for full consistency */
   --friends-card-bg: var(--card);
   --friends-card-border: var(--block-border);
-  --friends-card-hover: var(--block-hover, rgba(0,0,0,0.03));
+  --friends-card-hover: var(--theme-a10, rgba(0,0,0,0.03));
   --friends-text: var(--text);
   --friends-text-secondary: var(--text-p2);
-  --friends-accent: var(--theme-link);
-  --friends-shadow: var(--theme-link-opa);
+  --friends-accent: var(--link, #448aff);
+  --friends-shadow: var(--link-a20, rgba(68,138,255,0.2));
 }
 
 /* Layout - Grid System */
@@ -66,7 +66,7 @@
   height: 44px;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--site-bg);
+  background: var(--background, #fff);
   flex: 0 0 44px;
 }
 .friend-card .meta {
@@ -86,18 +86,15 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.friend-empty {
+  grid-column: 1 / -1;
+  list-style: none;
+  color: var(--friends-text-secondary);
+  font-style: italic;
+}
 
-/* Recent Comments */
-.rc-list { list-style: none; margin: 0; padding: 0; }
-.rc-item { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px dashed var(--friends-card-border); }
-.rc-item a { color: var(--friends-text); text-decoration: none; }
-.rc-item a:hover { color: var(--friends-accent); text-decoration: underline; }
-.rc-time { margin-left: auto; color: var(--friends-text-secondary); font-size: 12px; white-space: nowrap; }
-.rc-empty { color: var(--friends-text-secondary); font-style: italic; }
-
-/* Lazy Image */
-img.lazy { filter: blur(6px); transition: filter 0.25s ease; }
-img.lazy.loaded { filter: blur(0); }
+/* Recent comments use Stellar's native .tag-plugin.timeline styles. */
+.ds-recent-comments[hidden] { display: none; }
 
 /* Responsive Tweaks */
 @media (max-width: 480px) {
