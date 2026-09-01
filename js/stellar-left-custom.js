@@ -13,23 +13,24 @@
      aside.l_left .stellar-signature{font-size:.72em;line-height:1.4;color:#6b7280;margin:2px 0 4px 0;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-weight:normal}
      /* 覆盖移动端字号，防止其他脚本将其放大 */
      @media (max-width: 600px){ aside.l_left .logo-wrap .title .stellar-signature{font-size:.70em} }
-     aside.l_left .stellar-left-bottombar{display:flex;gap:12px;align-items:center;justify-content:center;padding:8px 6px;margin-top:14px;border-top:1px dashed rgba(0,0,0,.06);position:sticky;bottom:8px;background:transparent;backdrop-filter:none}
-     aside.l_left .stellar-left-bottombar a{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;color:#111;text-decoration:none;user-select:none;transition:transform .2s ease, background-color .2s ease}
-     aside.l_left .stellar-left-bottombar a:hover{background:rgba(0,0,0,.06)}
+     aside.l_left .leftbar-container>.stellar-left-bottombar{box-sizing:border-box;display:grid;grid-template-columns:repeat(6,minmax(32px,1fr));gap:4px;align-items:center;flex:0 0 auto;width:100%;min-height:52px;padding:7px var(--gap-base,16px) 9px;margin:0;border-top:1px solid var(--block-border,rgba(0,0,0,.06));position:relative;bottom:auto;background:var(--card,transparent);backdrop-filter:none;z-index:2}
+     aside.l_left .stellar-left-bottombar a{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;justify-self:center;border-radius:9px;color:var(--text-p1,#111);text-decoration:none;user-select:none;transition:transform .2s ease,background-color .2s ease,color .2s ease}
+     aside.l_left .stellar-left-bottombar a:hover,aside.l_left .stellar-left-bottombar a:focus-visible{background:var(--block-border,rgba(0,0,0,.06));outline:none}
      aside.l_left .stellar-left-bottombar a svg{width:20px;height:20px;display:block}
      html.dark aside.l_left .stellar-left-bottombar a, [data-theme='dark'] aside.l_left .stellar-left-bottombar a{color:#eee}
      html.dark aside.l_left .stellar-left-bottombar a:hover, [data-theme='dark'] aside.l_left .stellar-left-bottombar a:hover{background:rgba(255,255,255,.12)}
-     @media (max-width: 960px){ aside.l_left .stellar-left-bottombar{flex-wrap:wrap;gap:10px} }
+     @media (max-width: 960px){aside.l_left .leftbar-container>.stellar-left-bottombar{grid-template-columns:repeat(6,1fr);gap:2px;padding-inline:10px}}
 
-     /* 动画 */
-     aside.l_left .stellar-left-bottombar .jump{animation:jump 1.4s ease-in-out infinite}
+     /* 图标默认保持对齐，仅在悬停或键盘聚焦时播放装饰动画。 */
+     aside.l_left .stellar-left-bottombar .jump:hover,aside.l_left .stellar-left-bottombar .jump:focus-visible{animation:jump .7s ease-in-out}
      @keyframes jump{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-     aside.l_left .stellar-left-bottombar .flip{animation:flip 1.6s ease-in-out infinite}
+     aside.l_left .stellar-left-bottombar .flip:hover,aside.l_left .stellar-left-bottombar .flip:focus-visible{animation:flip .8s ease-in-out}
      @keyframes flip{0%,100%{transform:scaleX(1)}50%{transform:scaleX(-1)}}
-     aside.l_left .stellar-left-bottombar .shake{animation:shake 1.2s ease-in-out infinite}
+     aside.l_left .stellar-left-bottombar .shake:hover,aside.l_left .stellar-left-bottombar .shake:focus-visible{animation:shake .6s ease-in-out}
      @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-1px)}75%{transform:translateX(1px)}}
-     aside.l_left .stellar-left-bottombar .spin{animation:spin 2.2s linear infinite}
+     aside.l_left .stellar-left-bottombar .spin:hover,aside.l_left .stellar-left-bottombar .spin:focus-visible{animation:spin 1.1s linear}
      @keyframes spin{to{transform:rotate(360deg)}}
+     @media (prefers-reduced-motion:reduce){aside.l_left .stellar-left-bottombar a{animation:none!important;transition:none}}
 
      /* 提示 */
      .stellar-toast{position:fixed;right:16px;bottom:16px;background:rgba(17,24,39,.92);color:#fff;padding:8px 12px;border-radius:10px;font-size:13px;box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;z-index:9999}
@@ -69,10 +70,15 @@
   function toggleSnow(){ if(snowOn){ stopSnow(); showToast('飘落已关闭'); } else { startSnow(); showToast('飘落已开启'); } }
 
   // 夜间/黑暗模式
-  var darkOn = (localStorage.getItem('stellar_dark') === '1')
-    || document.documentElement.classList.contains('dark')
-    || (document.documentElement.dataset.theme === 'dark')
-    || (document.body && (document.body.classList.contains('dark') || document.body.dataset.theme === 'dark'));
+  function isDark(){
+    try {
+      if (window.utils && window.utils.dark && window.utils.dark.mode) return window.utils.dark.mode === 'dark';
+      var selected = document.documentElement.dataset.theme;
+      if (selected) return selected === 'dark';
+      return Boolean(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    } catch(e) { return false; }
+  }
+  var darkOn = isDark();
   function applyDark(on){
     try {
       var root = document.documentElement;
@@ -90,7 +96,19 @@
       }
     } catch(e) {}
   }
-  function toggleDark(){ darkOn=!darkOn; applyDark(darkOn); showToast(darkOn?'夜间模式已开启':'夜间模式已关闭'); }
+  function toggleDark(){
+    try {
+      // Stellar 1.44 自带 light -> dark -> auto 三态切换，优先交给主题管理。
+      if (typeof switchTheme === 'function') {
+        switchTheme();
+        darkOn = isDark();
+        return;
+      }
+    } catch(e) {}
+    darkOn=!darkOn;
+    applyDark(darkOn);
+    showToast(darkOn?'夜间模式已开启':'夜间模式已关闭');
+  }
 
   ready(function(){
     ensureLeft(function(left){
@@ -154,6 +172,7 @@
           }
 
           // 2) 底部功能图标栏：确保作为左栏最后一个子元素挂载，并避免重复绑定事件
+          var barHost = left.querySelector('.leftbar-container') || left;
           var bar = left.querySelector('.stellar-left-bottombar');
           if (!bar) {
             bar = document.createElement('div');
@@ -190,9 +209,10 @@
                   <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"></path>
                 </svg>
               </a>`;
-            left.appendChild(bar);
-          } else {
-            // 已存在则不重复调整位置，避免与主题的动态重排互相“抢位”造成高频变动
+            barHost.appendChild(bar);
+          } else if (bar.parentElement !== barHost) {
+            // 旧版曾将图标栏挂在 aside 外层；升级后将它迁回主题的弹性容器。
+            barHost.appendChild(bar);
           }
 
           if (bar && !bar.dataset.bound) {
@@ -203,8 +223,9 @@
             bar.dataset.bound = '1';
           }
 
-          // 初始化夜间模式状态（确保每次挂载都一致）
-          applyDark(darkOn);
+          // 不覆盖 Stellar 自带的主题偏好；只在主题 API 不存在时使用兼容逻辑。
+          darkOn = isDark();
+          if (typeof switchTheme !== 'function') applyDark(darkOn);
         } catch(e) {}
       }
 

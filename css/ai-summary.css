@@ -32,8 +32,8 @@
   animation: ai-sweepLight 3s linear infinite;
 }
 
-.ai-summary-content { display: flex; flex-direction: column; gap: 0.5rem; }
-.ai-summary-header { display: flex; align-items: center; }
+.ai-summary-content { display: flex; flex-direction: column; gap: 0.65rem; }
+.ai-summary-header { display: flex; align-items: center; min-width: 0; }
 .ai-summary-tag {
   background: var(--link, #448aff);
   padding: 0.3rem 0.8rem;
@@ -51,3 +51,19 @@
 @keyframes ai-blink-caret { from, to { opacity: 0; } 50% { opacity: 1; } }
 @keyframes ai-fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes ai-sweepLight { 0% { left: -100%; } 100% { left: 150%; } }
+
+@media (max-width: 480px) {
+  .ai-summary-dashed-container { padding: 0.9rem; }
+  .ai-summary-slogan { overflow: hidden; text-overflow: ellipsis; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-summary-dashed-container,
+  .ai-summary-dashed-container::after,
+  .ai-summary-slogan::after,
+  .ai-summary-body {
+    animation: none;
+    transition: none;
+  }
+  .ai-summary-body { opacity: 1; }
+}

@@ -165,7 +165,7 @@
     <div class="content-hub" data-content-hub="moments">
       
     <header class="content-hub-header">
-      <p class="content-hub-eyebrow">CONTENT HUB</p>
+      <p class="content-hub-eyebrow">随想频道</p>
       <h1>#记录</h1>
       <p>随想中带有“记录”标签的内容。</p>
       <nav class="content-hub-subnav" aria-label="随想导航">
@@ -178,13 +178,17 @@
       
     <form class="content-hub-filters" data-hub-filters action="/moments/" method="get">
       <label class="content-hub-search"><span>搜索</span><input type="search" name="q" data-filter-q placeholder="搜索内容、标题或位置" autocomplete="off"></label>
-      <label><span>标签</span><select name="tag" data-filter-tag><option value="">全部标签</option><option value="记录">记录</option><option value="建站">建站</option></select></label>
-      <label><span>分类</span><select name="category" data-filter-category><option value="">全部分类</option><option value="网站">网站</option></select></label>
-      <label><span>年份</span><select name="year" data-filter-year><option value="">全部年份</option><option value="2026">2026</option></select></label>
-      <label><span>月份</span><select name="month" data-filter-month><option value="">全部月份</option><option value="04">04</option></select></label>
-      
-      <button type="reset" data-filter-reset>清除筛选</button>
-      <output class="content-hub-result" data-filter-result aria-live="polite">共 1 条</output>
+      <div class="content-hub-filter-options">
+        <label><span>标签</span><select name="tag" data-filter-tag><option value="">全部标签</option><option value="记录">记录</option><option value="建站">建站</option></select></label>
+        <label><span>分类</span><select name="category" data-filter-category><option value="">全部分类</option><option value="网站">网站</option></select></label>
+        <label><span>年份</span><select name="year" data-filter-year><option value="">全部年份</option><option value="2026">2026</option></select></label>
+        <label><span>月份</span><select name="month" data-filter-month><option value="">全部月份</option><option value="04">04</option></select></label>
+        
+      </div>
+      <div class="content-hub-filter-actions">
+        <output class="content-hub-result" data-filter-result aria-live="polite">共 1 条</output>
+        <button type="reset" data-filter-reset>清除筛选</button>
+      </div>
     </form>
       <div class="content-hub-list layout-stream" data-hub-list>
     <article class="content-hub-card moment-card" id="item-7b58884e-2ff6-4d83-8bc8-c3b0584cb341" data-hub-item data-search="这个页面用来记录日常的感受和想法，就像发朋友圈一样随意。 想法、心情、路上看到的有趣的事，都可以在这里留下痕迹。 建站 记录 网站" data-tags="[&quot;建站&quot;,&quot;记录&quot;]" data-category="网站" data-status="" data-year="2026" data-month="04">
