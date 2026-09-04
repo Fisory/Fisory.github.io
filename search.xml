@@ -19,12 +19,6 @@
       </categories>
   </entry>
   <entry>
-    <title>测试</title>
-    <url>/2026/04/09/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>测试</p>
-]]></content>
-  </entry>
-  <entry>
     <title>静</title>
     <url>/2025/09/24/%E9%9D%99/</url>
     <content><![CDATA[<div class="ai-summary-dashed-container">
@@ -47,5 +41,11 @@
       <categories>
         <category>思索</category>
       </categories>
+  </entry>
+  <entry>
+    <title>测试</title>
+    <url>/2026/04/09/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<p>测试</p>
+]]></content>
   </entry>
 </search>
