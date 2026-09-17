@@ -161,8 +161,8 @@
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/archives/">归档</a><a class="active" href="/moments/">随想</a><a href="/projects/">项目</a></nav></div></div></div>
 
 
-<article class="md-text content slide-up"><div class="content-hub content-hub-single" data-content-hub="moments">
-    <article class="content-hub-card moment-card is-single" id="item-ff3ba1fd-4bac-42a5-8e96-a640298ed9d0" data-hub-item data-search="众人熙熙，如享太牢，如春登台；我独泊兮，其未兆。 感悟" data-tags="[&quot;感悟&quot;]" data-category="" data-status="" data-year="2026" data-month="09">
+<article class="md-text content slide-up"><div class="content-hub content-hub-single" data-content-hub="moments" data-reactions-api="https://api.slienceisabelle.com" data-comments-enabled="true" data-twikoo-env-id="https://comments-nine-ecru.vercel.app/" data-twikoo-region="" data-twikoo-js="https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js">
+    <article class="content-hub-card moment-card is-single" id="item-ff3ba1fd-4bac-42a5-8e96-a640298ed9d0" data-hub-item data-content-id="ff3ba1fd-4bac-42a5-8e96-a640298ed9d0" data-content-path="/moments/ff3ba1fd-4bac-42a5-8e96-a640298ed9d0/" data-search="众人熙熙，如享太牢，如春登台；我独泊兮，其未兆。 感悟" data-tags="[&quot;感悟&quot;]" data-category="" data-status="" data-year="2026" data-month="09">
       <a class="content-hub-back" href="/moments/">← 返回全部随想</a>
       <header class="content-hub-item-header">
         <img class="content-hub-avatar lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/img/slience.jpg" alt="Slience" loading="lazy">
@@ -177,8 +177,19 @@
 </div>
       <div class="content-hub-gallery count-1"><a href="/assets/moments/mtmcgrlx-y1m5w9mr.webp" class="content-hub-image" data-hub-image target="_blank" rel="noopener" aria-label="查看2026年09月04日的第 1 张图片"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/assets/moments/mtmcgrlx-y1m5w9mr.webp" alt="2026年09月04日图片 1" loading="lazy" decoding="async"></a></div>
       <footer class="content-hub-item-footer">
-        <div><div class="content-hub-tags" aria-label="标签"><a class="content-hub-tag" href="/moments/tags/%E6%84%9F%E6%82%9F/" rel="tag">#感悟</a></div></div>
-        <a class="content-hub-permalink" href="/moments/ff3ba1fd-4bac-42a5-8e96-a640298ed9d0/" aria-label="这条随想的永久链接">永久链接</a>
+        <div class="content-hub-item-meta"><div class="content-hub-tags" aria-label="标签"><a class="content-hub-tag" href="/moments/tags/%E6%84%9F%E6%82%9F/" rel="tag">#感悟</a></div></div>
+        
+        <nav class="content-hub-actions" aria-label="随想互动">
+          <button class="content-hub-action content-hub-like is-loading" type="button" data-reaction-like aria-pressed="false" aria-busy="true" aria-label="点赞数据加载中" disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.35 13A4.9 4.9 0 0 1 11.3 6.1l.7.72.7-.72A4.9 4.9 0 0 1 19.65 13Z"/></svg><span data-reaction-count>赞</span><span class="content-hub-visually-hidden" data-reaction-status aria-live="polite"></span>
+          </button>
+          <a class="content-hub-action content-hub-comment" href="/moments/ff3ba1fd-4bac-42a5-8e96-a640298ed9d0/#comments" data-comment-link aria-label="查看评论">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.25 5.25h13.5v10.5H10l-4.75 3v-3.02Z"/></svg><span data-comment-count>评论</span>
+          </a>
+          <a class="content-hub-action content-hub-detail" href="/moments/ff3ba1fd-4bac-42a5-8e96-a640298ed9d0/" aria-label="打开这条随想的独立页面">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 14.5 14.5 9M8 16H6.75a4.75 4.75 0 0 1 0-9.5H10M14 6.5h3.25a4.75 4.75 0 0 1 0 9.5H14"/></svg><span>详情</span>
+          </a>
+        </nav>
       </footer>
     </article></div></article>
 
@@ -564,9 +575,9 @@
       
       function load_twikoo() {
         utils.css('/css/comments/twikoo.css?v=1.44.0');
-        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js', {defer: true}).then(function () {
+        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js', {defer: true}).then(function () {
           const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
+          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
             el: '#twikoo_container',
             path: path,
           }));

@@ -161,7 +161,7 @@
 <div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a href="/categories/">分类</a><a href="/archives/">归档</a><a class="active" href="/moments/">随想</a><a href="/projects/">项目</a></nav></div></div></div>
 
 
-<article class="md-text content slide-up"><div class="content-hub" data-content-hub="moments">
+<article class="md-text content slide-up"><div class="content-hub" data-content-hub="moments" data-reactions-api="https://api.slienceisabelle.com" data-comments-enabled="true" data-twikoo-env-id="https://comments-nine-ecru.vercel.app/" data-twikoo-region="" data-twikoo-js="https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js">
     <header class="content-hub-header">
       <p class="content-hub-eyebrow">随想频道</p>
       <h1>随想 · 标签</h1>
@@ -542,9 +542,9 @@
       
       function load_twikoo() {
         utils.css('/css/comments/twikoo.css?v=1.44.0');
-        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js', {defer: true}).then(function () {
+        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js', {defer: true}).then(function () {
           const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
+          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
             el: '#twikoo_container',
             path: path,
           }));

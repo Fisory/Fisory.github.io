@@ -687,9 +687,9 @@
       
       function load_twikoo() {
         utils.css('/css/comments/twikoo.css?v=1.44.0');
-        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js', {defer: true}).then(function () {
+        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js', {defer: true}).then(function () {
           const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
+          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
             el: '#twikoo_container',
             path: path,
           }));

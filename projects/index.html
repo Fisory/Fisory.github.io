@@ -162,7 +162,7 @@
 
 
 <article class="md-text content slide-up">
-    <div class="content-hub" data-content-hub="projects">
+    <div class="content-hub" data-content-hub="projects" data-reactions-api="" data-comments-enabled="true" data-twikoo-env-id="https://comments-nine-ecru.vercel.app/" data-twikoo-region="" data-twikoo-js="https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js">
       
     <header class="content-hub-header">
       <p class="content-hub-eyebrow">项目频道</p>
@@ -563,9 +563,9 @@
       
       function load_twikoo() {
         utils.css('/css/comments/twikoo.css?v=1.44.0');
-        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js', {defer: true}).then(function () {
+        utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js', {defer: true}).then(function () {
           const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
-          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
+          twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js","envId":"https://comments-nine-ecru.vercel.app/"}, {
             el: '#twikoo_container',
             path: path,
           }));
