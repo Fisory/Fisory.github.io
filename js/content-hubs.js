@@ -239,12 +239,23 @@
     }).filter(Boolean)));
     if (!ids.length) return;
 
+    var revisions = Object.create(null);
+    var refreshing = false;
+    var refreshQueued = false;
+
+    function canRefresh(id, revision) {
+      return (revisions[id] || 0) === revision && !reactionButtons(root, id).some(function (button) {
+        return button.dataset.pending === 'true';
+      });
+    }
+
     buttons.forEach(function (button) {
       button.addEventListener('click', function () {
         var item = button.closest('[data-content-id]');
         var id = item ? item.dataset.contentId : '';
         if (!id || button.dataset.pending === 'true') return;
 
+        revisions[id] = (revisions[id] || 0) + 1;
         var previous = {
           count: parseCount(button.dataset.count, 0),
           liked: button.getAttribute('aria-pressed') === 'true',
@@ -291,25 +302,57 @@
       });
     });
 
-    for (var offset = 0; offset < ids.length; offset += 50) {
-      (function (batch) {
-        var query = batch.map(encodeURIComponent).join(',');
-        requestJson(apiBase + '/v1/reactions?ids=' + query).then(function (payload) {
-          var items = reactionItems(payload);
-          batch.forEach(function (id) {
-            var state = items[id] || { count: 0, liked: false };
-            paintReactionGroup(root, id, state);
-          });
-        }).catch(function () {
-          batch.forEach(function (id) {
-            reactionButtons(root, id).forEach(function (button) {
-              setReactionBusy(button, false);
-              button.hidden = true;
+    function refreshReactions() {
+      if (refreshing) {
+        refreshQueued = true;
+        return;
+      }
+      var eligibleIds = ids.filter(function (id) {
+        return canRefresh(id, revisions[id] || 0);
+      });
+      if (!eligibleIds.length) return;
+      refreshing = true;
+      var requests = [];
+      for (var offset = 0; offset < eligibleIds.length; offset += 50) {
+        (function (batch) {
+          var snapshot = Object.create(null);
+          batch.forEach(function (id) { snapshot[id] = revisions[id] || 0; });
+          var query = batch.map(encodeURIComponent).join(',');
+          requests.push(requestJson(apiBase + '/v1/reactions?ids=' + query).then(function (payload) {
+            var items = reactionItems(payload);
+            batch.forEach(function (id) {
+              if (!canRefresh(id, snapshot[id])) return;
+              var state = items[id] || { count: 0, liked: false };
+              reactionButtons(root, id).forEach(function (button) { button.hidden = false; });
+              paintReactionGroup(root, id, state);
             });
-          });
-        });
-      })(ids.slice(offset, offset + 50));
+          }).catch(function () {
+            batch.forEach(function (id) {
+              if (!canRefresh(id, snapshot[id])) return;
+              reactionButtons(root, id).forEach(function (button) {
+                setReactionBusy(button, false);
+                if (button.dataset.count === undefined) button.hidden = true;
+              });
+            });
+          }));
+        })(eligibleIds.slice(offset, offset + 50));
+      }
+      Promise.all(requests).finally(function () {
+        refreshing = false;
+        if (refreshQueued) {
+          refreshQueued = false;
+          refreshReactions();
+        }
+      });
     }
+
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) refreshReactions();
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'visible') refreshReactions();
+    });
+    refreshReactions();
   }
 
   function twikooReady() {
