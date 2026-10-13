@@ -1,0 +1,153 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>共享笔记板 · 离线工作区</title><link rel="stylesheet" href="/assets/notes/runtime/b72ef36501fe/notes.css"></head><body class="notes-offline-shell"><main class="offline-container"><section id="shared-notes" data-build="b72ef36501fe" aria-label="离线协作笔记板">
+  <nav class="notes-breadcrumb" aria-label="项目位置">
+    <a href="/lab/">实验室</a><span>/</span><span aria-current="page">共享笔记板</span>
+  </nav>
+  <header class="notes-heading">
+    <div>
+      <span class="notes-eyebrow">OFFLINE FIRST · 一起写，也各自留一份</span>
+      <h1>共享笔记板</h1>
+      <p>断网时继续记，重新连接后，把彼此的修改接起来。</p>
+    </div>
+    <button type="button" data-new>＋ 新建笔记板</button>
+  </header>
+  <p class="notes-shell-warning" data-shell-warning hidden>
+    正在使用已缓存的离线工作区。其他博客页面未必能离线打开；本机内容不会因此被清空。
+  </p>
+  <div class="notes-welcome" data-welcome>
+    <div class="notes-paper-preview" aria-hidden="true">
+      <span></span><i></i><i></i><i></i><b>↗</b>
+    </div>
+    <div>
+      <span class="notes-eyebrow">从一张空白纸开始</span>
+      <h2>把想法写在一起</h2>
+      <p>新建一块板，将协作链接发给另一位。也可以打开第二窗口，亲手验证离线合并。</p>
+      <button type="button" class="notes-primary" data-start>新建第一块笔记板</button>
+    </div>
+  </div>
+  <div data-workspace hidden>
+    <div class="notes-topbar">
+      <div class="notes-connection">
+        <span class="notes-status-dot" aria-hidden="true"></span
+        ><strong data-connection>正在连接</strong><span data-peer-count></span>
+      </div>
+      <div class="notes-actions">
+        <button type="button" data-export>导出文字</button
+        ><button type="button" class="notes-primary" data-copy>复制协作链接</button>
+      </div>
+    </div>
+    <p class="notes-privacy">
+      协作链接就是钥匙，持有者可以读写整块笔记。请只发给你信任的人；这里不是密码保险箱。
+    </p>
+    <div class="notes-layout">
+      <section class="notes-editor-card" aria-label="共享写作区">
+        <div class="notes-editor-toolbar">
+          <div><span class="notes-page-number">01</span><span>共同写作</span></div>
+          <div>
+            <button
+              type="button"
+              aria-label="撤回自己的正文编辑"
+              title="只撤回本窗口自己的正文编辑"
+              data-undo
+            >
+              ↶</button
+            ><button type="button" aria-label="恢复自己的正文编辑" data-redo>↷</button>
+          </div>
+        </div>
+        <div class="notes-title" data-title-editor></div>
+        <div class="notes-byline">
+          <span>文字与 Markdown · 支持中文输入</span><span data-count>0 字符</span>
+        </div>
+        <div class="notes-editor" data-editor></div>
+        <footer class="notes-save-status">
+          <span><i aria-hidden="true"></i><span data-local-save>准备本机副本</span></span
+          ><span data-sync-save>等待连接／确认</span>
+        </footer>
+      </section>
+      <aside class="notes-sidebar" aria-label="协作与离线实验">
+        <section class="notes-panel">
+          <div class="notes-panel-heading">
+            <h2>谁在一起写</h2>
+            <span>无需注册</span>
+          </div>
+          <label for="notes-name">我的昵称</label
+          ><input id="notes-name" name="nickname" maxlength="24" autocomplete="off" />
+          <div class="notes-peer-list" data-peers></div>
+          <p class="notes-small">其他人的光标与选择会用颜色显示。离线时不把别人显示成仍在线。</p>
+        </section>
+        <section class="notes-panel notes-experiment">
+          <span class="notes-eyebrow">你可以亲手验证</span>
+          <h2>两窗口，三步实验</h2>
+          <ol>
+            <li><strong>连接时一起写</strong><span>另一边会收到修改，而不是整页被覆盖。</span></li>
+            <li>
+              <strong>断开一个窗口</strong><span>两边分别追加几句话，暂时看不到对方的新内容。</span>
+            </li>
+            <li><strong>重新连接</strong><span>交换缺少的编辑记录，检查两边是否一致。</span></li>
+          </ol>
+          <button type="button" data-second-window>打开第二窗口 ↗</button
+          ><button type="button" class="notes-disconnect" data-toggle>模拟断网</button>
+          <p class="notes-small" data-network-description></p>
+        </section>
+      </aside>
+    </div>
+    <details class="notes-panel notes-inspector">
+      <summary>看看实际保存与同步状态</summary>
+      <dl>
+        <div>
+          <dt>本机存储</dt>
+          <dd>IndexedDB 事务完成后才显示已保存</dd>
+        </div>
+        <div>
+          <dt>协作服务</dt>
+          <dd data-service></dd>
+        </div>
+        <div>
+          <dt>服务器记录版本</dt>
+          <dd data-revision></dd>
+        </div>
+        <div>
+          <dt>当前副本编号</dt>
+          <dd data-replica></dd>
+        </div>
+        <div>
+          <dt>真实消息数</dt>
+          <dd data-messages></dd>
+        </div>
+        <div>
+          <dt>待确认状态</dt>
+          <dd data-pending></dd>
+        </div>
+        <div>
+          <dt>离线重新打开</dt>
+          <dd data-offline-cache>正在缓存页面…</dd>
+        </div>
+      </dl>
+      <label for="notes-link">协作链接（包含读写钥匙，请勿公开截图或转发给陌生人）</label
+      ><input id="notes-link" type="text" readonly spellcheck="false" />
+      <p class="notes-small">
+        模拟断网只断开协作连接，不是整个浏览器断网。真正离线刷新需要先看到“离线页面已缓存”。两窗口演示是两个独立副本，不代表已测试两台实体设备。
+      </p>
+    </details>
+    <details class="notes-panel notes-about">
+      <summary>它怎样合并，以及边界在哪里</summary>
+      <p>
+        每次编辑记录带着自己的编号与位置关系。正文使用 Yjs
+        合并，相同记录重复收到不会插入两遍，双方的插入和删除按同一算法处理。即使在同一处打字，重连后两边会得到相同结果；这不保证句子在人类看来一定通顺，仍需要一起整理。
+      </p>
+      <p>
+        先写入浏览器，再发送给服务端。收到服务器保存后的确认，才显示“服务器已保存”。刷新从本机副本接续；服务器重启从持久存储接续。撤销只针对这个窗口自己的正文编辑，不是把整块板倒回某个旧版本。
+      </p>
+      <p>
+        正文上限 60,000 字符，标题 120 字符，最多 12 个在线编辑窗口；服务端每块板的合并记录限 256
+        KiB。越界会暂停同步、保留本机副本，允许导出后拆分。浏览器清理站点数据、无痕模式或存储失败可能丢本机草稿，请保留文字备份。
+      </p>
+      <p>
+        初版只有文字与 Markdown 源文本，不上传图片，不渲染用户
+        HTML，也没有账号、只读链接、访问撤销或完整历史版本。链接丢失不能仅凭标题找回；拿到链接的人可以修改或删除正文。协作资料在浏览器和你的网站协作服务里保存，不发送给
+        AI，不读取 Mio 或魔法世界的数据。
+      </p>
+    </details>
+  </div>
+  <p class="notes-notice" role="status" aria-live="polite" data-notice>正在准备笔记板…</p>
+</section>
+</main><script type="module" src="/assets/notes/runtime/b72ef36501fe/app.js"></script></body></html>
