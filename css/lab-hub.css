@@ -1,0 +1,42 @@
+/* Project directory only: no Mio runtime or account requests on this page. */
+.l_body[type="lab"]{--width-main:1040px;--width-content:1040px;max-width:1400px}
+@media(min-width:667px){.l_body[type="lab"]{grid-template-columns:352px minmax(0,1fr);padding:0 20px}.l_body[type="lab"] .float-panel{grid-column:1/-1}}
+@media(min-width:667px) and (max-width:960px){.l_body[type="lab"]{grid-template-columns:272px minmax(0,1fr);padding:0 12px}.l_body[type="lab"] .l_left{width:240px;margin:16px}.l_body[type="lab"] .leftbar-container{width:240px}}
+.l_body[type="lab"] .l_right{display:none}
+.l_body[type="lab"] .l_main{min-width:0}
+.l_body[type="lab"] article.md-text{padding:0;background:transparent;box-shadow:none;border:0;text-indent:0}
+@media(max-width:666px){.l_body[type="lab"] article.md-text{padding:0 14px}}
+#lab-hub{--lab-surface:var(--card,#fff);--lab-text:var(--text-p1,#253545);--lab-muted:var(--text-p3,#687b8c);--lab-line:var(--block-border,#e4ebf1);--lab-soft:var(--block,#f3f6fa);--lab-blue:#2887d4;--lab-accent:#edf6ff;font:400 14px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--lab-text);padding:12px 0 32px}
+html[data-theme="dark"] #lab-hub,html.dark #lab-hub{--lab-surface:#20262e;--lab-text:#e2eaf4;--lab-muted:#a0b1c2;--lab-line:#354150;--lab-soft:#28323d;--lab-blue:#83c4ff;--lab-accent:#20384d}
+@media(prefers-color-scheme:dark){html:not([data-theme="light"]) #lab-hub{--lab-surface:#20262e;--lab-text:#e2eaf4;--lab-muted:#a0b1c2;--lab-line:#354150;--lab-soft:#28323d;--lab-blue:#83c4ff;--lab-accent:#20384d}}
+#lab-hub *,#lab-hub *:before{box-sizing:border-box}
+#lab-hub h1,#lab-hub h2,#lab-hub p{margin:0;padding:0;border:0;letter-spacing:0;text-indent:0;color:inherit}
+#lab-hub a{text-decoration:none;border:0;color:inherit}
+#lab-hub a:focus-visible{outline:2px solid var(--lab-blue);outline-offset:4px}
+#lab-hub .lab-heading{margin:4px 0 28px}
+#lab-hub .lab-eyebrow{font-size:11px;color:var(--lab-blue);letter-spacing:.08em}
+#lab-hub h1{font-size:30px;font-weight:600;line-height:1.4;margin:8px 0 12px}
+#lab-hub .lab-heading p{color:var(--lab-muted);font-size:13px}
+#lab-hub .lab-project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:18px}
+#lab-hub .lab-project{background:var(--lab-surface);border:1px solid var(--lab-line);border-radius:18px;overflow:hidden;min-width:0;transition:border-color .2s,box-shadow .2s}
+#lab-hub .lab-project:hover{border-color:var(--lab-blue);box-shadow:0 8px 26px #15315a0a}
+#lab-hub .lab-project-preview{position:relative;display:block;height:205px;background:radial-gradient(ellipse at 75% 35%,var(--lab-accent),transparent 80%),var(--lab-soft);overflow:hidden}
+#lab-hub .lab-project-preview>span{position:absolute;left:22px;top:22px;color:var(--lab-blue);font-size:11px;z-index:1}
+#lab-hub .lab-project-preview img{display:block;width:100%;height:100%;object-fit:contain;object-position:70% 100%;border:0;margin:0;padding:8px 14px 0;pointer-events:none;user-select:none}
+#lab-hub .lab-project-content{padding:20px 22px 22px}
+#lab-hub .lab-project-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--lab-muted);font-size:11px;margin-bottom:9px}
+#lab-hub .lab-project-status{display:flex;align-items:center;gap:6px;color:var(--lab-blue)}
+#lab-hub .lab-project-status:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
+#lab-hub h2{font-size:21px;font-weight:600;line-height:1.4;margin-bottom:10px}
+#lab-hub h2 a:hover{color:var(--lab-blue)}
+#lab-hub .lab-project-content>p{font-size:13px;color:var(--lab-muted);line-height:1.85;overflow-wrap:anywhere}
+#lab-hub .lab-project-features{list-style:none;display:flex;gap:7px;flex-wrap:wrap;margin:16px 0 20px;padding:0}
+#lab-hub .lab-project-features li{font-size:11px;background:var(--lab-soft);color:var(--lab-muted);border-radius:6px;padding:4px 7px;margin:0;line-height:1.5}
+#lab-hub .lab-project-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#lab-hub .lab-project-enter{display:inline-flex;align-items:center;gap:12px;padding:8px 12px;min-height:38px;background:var(--lab-accent);color:var(--lab-blue);border-radius:9px;font-size:12px}
+#lab-hub .lab-project-enter:hover{background:var(--lab-soft)}
+#lab-hub .lab-project-footer>span{color:var(--lab-muted);font-size:11px}
+#lab-hub .lab-note{font-size:12px;color:var(--lab-muted);margin-top:24px;line-height:1.8}
+@media(max-width:500px){#lab-hub{padding:0 0 24px}#lab-hub h1{font-size:27px}#lab-hub .lab-heading{margin-bottom:22px}#lab-hub .lab-project-content{padding:17px 18px 20px}}
+@media(pointer:coarse){#lab-hub .lab-project-enter{min-height:44px}}
+@media(prefers-reduced-motion:reduce){#lab-hub .lab-project{transition:none}}

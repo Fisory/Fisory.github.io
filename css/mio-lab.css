@@ -21,6 +21,10 @@ html[data-theme="dark"] #mio-lab,html.dark #mio-lab{--mio-surface:#20262e;--mio-
 #mio-lab button:focus-visible,#mio-lab textarea:focus-visible,#mio-lab input:focus-visible,#mio-lab select:focus-visible,#mio-lab summary:focus-visible{outline:2px solid var(--mio-blue);outline-offset:3px}
 #mio-lab .mio-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:10px 0 15px;flex-wrap:wrap}
 #mio-lab .mio-heading p{color:var(--mio-muted);font-size:13px}
+#mio-lab .mio-breadcrumb{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--mio-muted);margin:6px 0 14px}
+#mio-lab .mio-breadcrumb a{color:var(--mio-muted);text-decoration:none;border:0}
+#mio-lab .mio-breadcrumb a:hover{color:var(--mio-blue)}
+#mio-lab .mio-breadcrumb a:focus-visible{outline:2px solid var(--mio-blue);outline-offset:3px}
 #mio-lab .mio-eyebrow{font-size:11px;color:var(--mio-blue);letter-spacing:.12em}
 #mio-lab .mio-button{display:inline-flex;align-items:center;justify-content:center;gap:5px;background:var(--mio-surface);border:1px solid var(--mio-line);border-radius:9px;padding:7px 12px;font-size:12px;min-height:36px;white-space:nowrap;text-decoration:none;transition:background .15s,border-color .15s}
 #mio-lab .mio-button:hover:not(:disabled){background:var(--mio-soft);border-color:var(--mio-blue)}

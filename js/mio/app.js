@@ -221,7 +221,7 @@ function initialise(root) {
           const result = await api(`/api/works/${work.id}/${hiding ? 'unpublish' : 'publish'}`, { method: 'POST', data: { confirmed: true } });
           toast(result.publication === 'pending' ? '已申请公开，等待站长审核。' : result.publication === 'public' ? '作品已公开。' : '作品已转为私密。'); await refreshPrivate();
         }));
-        if (work.publication === 'public') tools.append(action('复制分享链接', async () => { await navigator.clipboard.writeText(`${location.origin}/lab/?work=${work.id}`); toast('分享链接已复制。'); }));
+        if (work.publication === 'public') tools.append(action('复制分享链接', async () => { await navigator.clipboard.writeText(`${location.origin}/lab/mio/?work=${encodeURIComponent(work.id)}`); toast('分享链接已复制。'); }));
         tools.append(action('删除', async () => { if (!confirm('删除这件云端作品？已公开的内容也会撤下。当前画布不会被清空。')) return; await api(`/api/works/${work.id}`, { method: 'DELETE', data: {} }); if (savedWorkId === work.id) { savedWorkId = null; persist(); } await refreshPrivate(); }));
       } else if (type === 'public') tools.append(action('复制并创作', () => { stop(); applyScene(work.scene, '复制公开作品，在你的空间继续创作，原作不会被改动。'); savedWorkId = null; persist(); root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
       else { tools.append(action('通过', async () => { await api(`/api/admin/works/${work.id}`, { method: 'POST', data: { approved: true } }); await refreshAdmin(); })); tools.append(action('拒绝', async () => { await api(`/api/admin/works/${work.id}`, { method: 'POST', data: { approved: false } }); await refreshAdmin(); })); }
