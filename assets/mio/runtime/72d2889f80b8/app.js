@@ -36,13 +36,21 @@ function initialise(root) {
   function character(emotion, label) {
     get('[data-character]').dataset.emotion = emotion;
     get('[data-character-state]').textContent = label;
-    try { const svg = get('.mio-portrait object').contentDocument?.documentElement; if (svg) svg.setAttribute('class', emotion); } catch { /* Character drawing can remain static. */ }
   }
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   function gaze(x, y) {
-    try { const svg = get('.mio-portrait object').contentDocument?.documentElement; svg?.style.setProperty('--gaze-x', `${(x - .5) * 2.7}px`); svg?.style.setProperty('--gaze-y', `${(y - .5) * 1.2}px`); svg?.style.setProperty('--head-tilt', `${(x - .5) * 6 - 2}deg`); } catch {}
+    if (reducedMotion.matches) return;
+    const horizontal = Number.isFinite(x) ? Math.min(1, Math.max(0, x)) - .5 : 0;
+    const vertical = Number.isFinite(y) ? Math.min(1, Math.max(0, y)) - .5 : 0;
+    const portrait = get('[data-character]');
+    portrait.style.setProperty('--mio-look-x', `${horizontal * 5}px`);
+    portrait.style.setProperty('--mio-look-y', `${vertical * 3}px`);
+    portrait.style.setProperty('--mio-look-angle', `${horizontal * 1.6}deg`);
   }
   const player = new CanvasPlayer(get('[data-canvas]'), current(), { onPointer: gaze, onError: error => { stop(); log(`画布运行异常：${error.message}。已暂停，仍可撤回。`); toast('规则运行异常，画面已暂停；可以撤回到之前的版本。'); renderVersions(); } });
-  get('.mio-portrait object').addEventListener('load', () => character(busy ? 'thinking' : 'idle', busy ? '正在琢磨你的想法' : '好奇地观察着'));
+  const characterArt = get('[data-character-art]');
+  characterArt.addEventListener('error', () => { get('[data-character]').dataset.imageError = 'true'; });
+  if (characterArt.complete && !characterArt.naturalWidth) get('[data-character]').dataset.imageError = 'true';
 
   async function api(path, { method = 'GET', data, signal } = {}) {
     const response = await fetch(apiBase + path, { method, credentials: 'include', signal, headers: { ...(data ? { 'Content-Type': 'application/json' } : {}), ...(method !== 'GET' ? { 'X-Mio-CSRF': csrf } : {}) }, ...(data ? { body: JSON.stringify(data) } : {}) });

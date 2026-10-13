@@ -46,12 +46,26 @@ html[data-theme="dark"] #mio-lab,html.dark #mio-lab{--mio-surface:#20262e;--mio-
 #mio-lab .mio-presets button,#mio-lab .mio-ideas button{font:inherit;font-size:12px;background:var(--mio-soft);border:0;color:var(--mio-text);border-radius:20px;padding:6px 11px}
 #mio-lab .mio-presets button:hover,#mio-lab .mio-ideas button:hover{color:var(--mio-blue);background:var(--mio-accent)}
 #mio-lab .mio-partner{padding:16px;display:flex;flex-direction:column;gap:12px}
-#mio-lab .mio-partner-heading{display:flex;align-items:center;gap:12px}
+#mio-lab .mio-partner-heading{display:flex;flex-direction:column;align-items:stretch;gap:9px}
 #mio-lab .mio-partner-heading h2{font-size:19px}
 #mio-lab .mio-partner-heading p{font-size:12px;color:var(--mio-muted)}
-#mio-lab .mio-portrait{width:100px;height:134px;flex:none;background:radial-gradient(ellipse at bottom,var(--mio-accent),transparent 75%);border-radius:16px}
-#mio-lab .mio-portrait object{width:100%;height:100%;pointer-events:none;display:block}
-#mio-lab .mio-character-state{font-size:11px;color:var(--mio-blue);display:block;margin-top:8px}
+#mio-lab .mio-portrait{--mio-look-x:0px;--mio-look-y:0px;--mio-look-angle:0deg;width:100%;height:212px;flex:none;position:relative;isolation:isolate;border-radius:13px;overflow:hidden;background:radial-gradient(ellipse at 60% 35%,var(--mio-accent),transparent 75%);transition:background .3s}
+#mio-lab .mio-character-motion{height:100%;width:100%;transform:translate(var(--mio-look-x),var(--mio-look-y)) rotate(var(--mio-look-angle));transform-origin:50% 80%;transition:transform .35s ease-out}
+#mio-lab .mio-character-art{display:block;width:100%;height:100%;object-fit:contain;object-position:50% 100%;border:0;margin:0;padding:5px 6px 0;pointer-events:none;user-select:none;filter:drop-shadow(0 5px 8px #15315a12);animation:mio-observer-float 7s ease-in-out infinite}
+#mio-lab .mio-partner-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 2px 3px}
+#mio-lab .mio-character-state{font-size:11px;color:var(--mio-blue);display:flex;align-items:center;gap:6px;text-align:right;max-width:55%;line-height:1.6}
+#mio-lab .mio-character-state:before{content:"";display:block;width:5px;height:5px;border-radius:50%;background:currentColor;flex:none;opacity:.65}
+#mio-lab .mio-portrait[data-emotion="thinking"] .mio-character-art{animation:mio-observer-think 4s ease-in-out infinite}
+#mio-lab .mio-portrait[data-emotion="happy"] .mio-character-art{animation:mio-observer-delight .8s ease-in-out 1,mio-observer-float 7s .8s ease-in-out infinite}
+#mio-lab .mio-portrait[data-emotion="curious"] .mio-character-art{transform-origin:50% 80%;animation:mio-observer-think 6s ease-in-out infinite}
+#mio-lab .mio-portrait[data-emotion="speaking"] .mio-character-art{animation:mio-observer-float 3s ease-in-out infinite}
+#mio-lab .mio-character-fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-size:30px;color:var(--mio-blue)}
+#mio-lab .mio-portrait[data-image-error="true"] .mio-character-motion{visibility:hidden}
+#mio-lab .mio-portrait[data-image-error="true"] .mio-character-fallback{display:flex}
+@keyframes mio-observer-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes mio-observer-think{0%,100%{transform:translateY(0) rotate(-.35deg)}50%{transform:translateY(-2px) rotate(.55deg)}}
+@keyframes mio-observer-delight{0%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+@media(prefers-reduced-motion:reduce){#mio-lab .mio-character-art{animation:none!important}#mio-lab .mio-character-motion{transform:none;transition:none}}
 #mio-lab .mio-conversation{display:flex;flex-direction:column;gap:10px;max-height:285px;min-height:105px;overflow-y:auto;scrollbar-width:thin;overscroll-behavior:contain;padding-right:3px}
 #mio-lab .mio-message{font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;padding:10px 12px;border-radius:13px;background:var(--mio-soft);max-width:96%}
 #mio-lab .mio-message-user{background:var(--mio-accent);align-self:flex-end;max-width:90%}
@@ -106,6 +120,6 @@ html[data-theme="dark"] #mio-lab,html.dark #mio-lab{--mio-surface:#20262e;--mio-
 #mio-lab .mio-memory-item>div{display:flex;gap:6px}
 #mio-lab .mio-toast{position:fixed;z-index:10000;left:50%;bottom:25px;transform:translateX(-50%);background:var(--mio-surface);color:var(--mio-text);border:1px solid var(--mio-line);border-radius:12px;box-shadow:0 8px 32px #07132620;padding:11px 17px;font-size:13px;max-width:calc(100vw - 32px);overflow-wrap:anywhere}
 #mio-lab .mio-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
-@container (max-width:660px){#mio-lab .mio-workspace{grid-template-columns:1fr}#mio-lab .mio-canvas-wrap{height:330px}#mio-lab .mio-partner{padding:16px}#mio-lab .mio-conversation{max-height:240px}#mio-lab .mio-portrait{height:110px;width:83px}#mio-lab .mio-canvases.is-comparing{grid-template-columns:1fr}#mio-lab .mio-heading h1{font-size:24px}}
+@container (max-width:660px){#mio-lab .mio-workspace{grid-template-columns:1fr}#mio-lab .mio-canvas-wrap{height:330px}#mio-lab .mio-partner{padding:16px}#mio-lab .mio-conversation{max-height:240px}#mio-lab .mio-partner-heading{flex-direction:row;align-items:center;gap:12px}#mio-lab .mio-portrait{width:clamp(132px,44cqw,210px);height:164px}#mio-lab .mio-partner-meta{min-width:0;flex:1;display:block}#mio-lab .mio-character-state{max-width:none;text-align:left;margin-top:9px}#mio-lab .mio-canvases.is-comparing{grid-template-columns:1fr}#mio-lab .mio-heading h1{font-size:24px}}
 @media(max-width:500px){#mio-lab{padding:0 0 15px}#mio-lab .mio-heading{gap:9px}#mio-lab .mio-heading h1{font-size:23px}#mio-lab .mio-canvas-wrap{height:300px}#mio-lab .mio-art-toolbar{padding:11px;gap:7px}#mio-lab .mio-art-heading{padding:13px 14px}#mio-lab .mio-button{padding:7px 10px}#mio-lab summary span{margin-left:0;display:block;margin-top:3px}#mio-lab .mio-work-grid{grid-template-columns:1fr}#mio-lab .mio-dialog{padding:17px}}
 @media(pointer:coarse){#mio-lab .mio-button,#mio-lab .mio-ideas button,#mio-lab .mio-presets button{min-height:44px}#mio-lab .mio-voice .mio-button{min-height:44px}}
