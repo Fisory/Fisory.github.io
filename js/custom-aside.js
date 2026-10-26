@@ -207,7 +207,7 @@
               <hr>
               <div class="section-title">快捷跳转地址：</div>
               <ul class="quick-links">
-                <li><span class="label">域名1：</span><a class="link link-fill" href="https://slienceisabelle.com" target="_blank" rel="noopener">slienceisabelle.com</a></li>
+                <li><span class="label">域名1：</span><a class="link link-fill" href="https://slience1013.wiki" target="_blank" rel="noopener">slience1013.wiki</a></li>
                 <li><span class="label">域名2：</span><a class="link link-fill" href="https://fisory.github.io/" target="_blank" rel="noopener">fisory.github.io</a></li>
               </ul>
               <p class="havefun">Have Fun :) ~</p>
