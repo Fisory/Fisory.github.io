@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Afternoon Serif";
+  src: url("./afternoon-serif.woff2") format("woff2");
+  font-weight: 400 750;
+  font-display: swap;
+}
+
+.l_main:has(.afternoon-essay) > .article-banner-wrap {
+  max-width: 39rem;
+  margin-inline: auto;
+}
+
+.l_main:has(.afternoon-essay) .article.banner {
+  background: none;
+  clip-path: none;
+}
+
+.l_main:has(.afternoon-essay) .article.banner .text.title {
+  font: 680 clamp(1.8rem, 4vw, 2.15rem)/1.3 "Afternoon Serif", "Songti SC", "Noto Serif CJK SC", SimSun, serif;
+  text-shadow: none;
+}
+
+.md-text > .afternoon-essay {
+  max-width: 37rem;
+  margin: 1.55rem auto 0;
+  font-family: "Afternoon Serif", "Songti SC", "Noto Serif CJK SC", SimSun, serif;
+}
+
+.afternoon-essay > p {
+  margin: 0 0 0.95em;
+  text-align: start;
+  line-height: 1.95;
+  line-break: strict;
+  text-wrap: pretty;
+}
+
+.afternoon-essay strong {
+  font-weight: 700;
+}
+
+.afternoon-essay .essay-photo {
+  max-width: 27rem;
+  margin: 1.65rem auto 1.8rem;
+}
+
+.afternoon-essay .essay-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.afternoon-essay .essay-photo figcaption {
+  margin-top: 0.6rem;
+  color: var(--text-p2);
+  font: 0.82rem/1.65 system-ui, sans-serif;
+}
+
+.afternoon-essay .essay-photo a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
